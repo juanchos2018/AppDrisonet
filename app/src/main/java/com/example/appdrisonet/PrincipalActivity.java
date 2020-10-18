@@ -9,7 +9,10 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.telecom.Call;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TableLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appdrisonet.Adapter.ViewPagerAdater;
 import com.example.appdrisonet.Fragment.HomeFragment;
@@ -23,17 +26,18 @@ public class PrincipalActivity extends AppCompatActivity {
     private TableLayout tableLayout;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    TextView titulo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Toolbar toolbar= findViewById(R.id.toolbar);
+        final Toolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle(getString(R.string.app_name));
       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        titulo=(TextView)findViewById(R.id.tvtitulo);
         tabLayout=findViewById(R.id.tabLayout);
         viewPager =findViewById(R.id.viewPager);
         viewPagerAdater=new ViewPagerAdater(getSupportFragmentManager());
@@ -48,12 +52,26 @@ public class PrincipalActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.message);
         tabLayout.getTabAt(2).setIcon(R.drawable.perfil);
 
-       // tabLayout.getTabAt(0).getIcon().setColorFilter(Color.blue(), PorterDuff.Mode.SRC_IN);
+       // tabLayout.getTabAt(0).getIcon().setColorFilter(Color.blue(), PorterDuff.Mode.SRC_IN); R.color.blue_link
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                tab.getIcon().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+               // tab.getIcon().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+                tab.getIcon().setColorFilter(getColor(R.color.blue_link), PorterDuff.Mode.SRC_IN);
+                    if (tabLayout.getSelectedTabPosition()==0){
+                        titulo.setVisibility(View.VISIBLE);
+                    }
+                    if (tabLayout.getSelectedTabPosition()==1){
+                        titulo.setVisibility(View.GONE);
+                      //  toolbar.LayoutParams params = (TableLayout.LayoutParams) toolbar.getLayoutParams();
+                      //  Toolbar.LayoutParams params1 =(Toolbar.LayoutParams) toolbar.getLayoutParams();
+                        //params1.height = 50;
 
+                       // toolbar.setLayoutParams(new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT));
+                    }
+                    if (tabLayout.getSelectedTabPosition()==2){
+                        titulo.setVisibility(View.GONE);
+                    }
             }
 
             @Override

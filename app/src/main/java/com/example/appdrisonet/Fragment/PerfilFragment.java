@@ -1,13 +1,18 @@
 package com.example.appdrisonet.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.appdrisonet.Acitity.PerfilActivity;
 import com.example.appdrisonet.R;
 
 /**
@@ -25,6 +30,9 @@ public class PerfilFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    CardView carperfil;
+    TextView tvnombre;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -48,6 +56,8 @@ public class PerfilFragment extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +70,28 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        carperfil=(CardView)vista.findViewById(R.id.carperfil);
+        tvnombre=(TextView)vista.findViewById(R.id.tvnombre);
+        carperfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Perfil();
+            }
+        });
+        tvnombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Perfil();
+            }
+        });
+        return vista;
+    }
+
+    private void Perfil() {
+
+        startActivity(new Intent(getContext(), PerfilActivity.class));
+
     }
 }

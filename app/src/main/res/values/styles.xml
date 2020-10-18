@@ -10,4 +10,9 @@
 
     </style>
 
+
+    <style name="ToolbarTextAppearance">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+
+    </style>
 </resources>

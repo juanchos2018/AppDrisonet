@@ -14,25 +14,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blanco"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        >
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:background="@color/blanco"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="wrap_content">
 
-          <com.google.android.material.tabs.TabLayout
-              android:id="@+id/tabLayout"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:tabGravity="fill"
-              app:tabTextColor="@color/colorAccent"
-              app:tabIndicatorHeight="1.5dp"
-              app:tabMode="fixed"
-              app:tabIndicatorColor="@color/colorAccent">
 
-          </com.google.android.material.tabs.TabLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvtitulo"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="drisonet"
+                    android:textSize="25sp"
+                    android:textColor="@color/blue_link"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabGravity="fill"
+                    app:tabTextColor="@color/colorAccent"
+                    app:tabIndicatorHeight="1.5dp"
+                    app:tabMode="fixed"
+
+                    app:tabIndicatorColor="@color/colorAccent">
+
+                </com.google.android.material.tabs.TabLayout>
+            </LinearLayout>
+
 
         </androidx.appcompat.widget.Toolbar>
 
