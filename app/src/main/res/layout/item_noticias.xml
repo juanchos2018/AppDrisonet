@@ -3,33 +3,62 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    >
 
     <androidx.cardview.widget.CardView
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="50dp">
+
                 <ImageView
-                    android:src="@drawable/home"
+
                     android:id="@+id/imgperfil"
                     android:layout_width="50dp"
                     android:layout_height="50dp">
                 </ImageView>
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/tvnombreusu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:text="nombre usuario"></TextView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/imgDetalle"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/tolbarpuntos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </ImageView>
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
@@ -37,12 +66,15 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/tvdescripcion"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15sp"
                     android:text="Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </TextView>
                 <ImageView
                     android:id="@+id/imgnoticia"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/empleo"
                     android:layout_width="match_parent"
                     android:layout_height="200dp">

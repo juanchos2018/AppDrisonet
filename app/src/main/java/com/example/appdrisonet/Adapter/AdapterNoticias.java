@@ -1,5 +1,6 @@
 package com.example.appdrisonet.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.appdrisonet.Clases.Noticias;
 import com.example.appdrisonet.R;
 
@@ -18,6 +20,7 @@ public class AdapterNoticias  extends RecyclerView.Adapter<AdapterNoticias.ViewH
 
 
     ArrayList<Noticias> listaNoticias;
+    Context context;
 
     public AdapterNoticias(ArrayList<Noticias> listaNoticias) {
         this.listaNoticias = listaNoticias;
@@ -39,8 +42,13 @@ public class AdapterNoticias  extends RecyclerView.Adapter<AdapterNoticias.ViewH
             items.tvnombre_usu.setText(listaNoticias.get(position).getNombre_usuario());
             items.tvdescripcionnoticia.setText(listaNoticias.get(position).getDescripcion_noticia());
 
+            Glide.with(holder.imgnoticia.getContext())
+                    .load(listaNoticias.get(position).getImg_noticia())
+                    .placeholder(R.drawable.ic_launcher_background)
 
+                    .error(R.drawable.ic_launcher_background)
 
+                    .into(items.imgnoticia);
         }
     }
 
@@ -58,6 +66,7 @@ public class AdapterNoticias  extends RecyclerView.Adapter<AdapterNoticias.ViewH
 
             tvnombre_usu=(TextView)itemView.findViewById(R.id.tvnombreusu);
             tvdescripcionnoticia=(TextView)itemView.findViewById(R.id.tvdescripcion);
+            imgnoticia=(ImageView)itemView.findViewById(R.id.imgnoticia);
         }
     }
 }
