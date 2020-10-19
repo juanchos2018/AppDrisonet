@@ -13,7 +13,7 @@ import com.example.appdrisonet.Acitity.RegistroActivity;
 public class LoginActivity extends AppCompatActivity {
 
 
-    Button btn1,btn2;
+    Button btn1,btn2,btn3;
     EditText et1,et2;
 
     @Override
@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btn1=(Button)findViewById(R.id.btnregistrar);
         btn2=(Button)findViewById(R.id.btningresar);
+        btn3=(Button)findViewById(R.id.btnregistrar);
         et1=(EditText)findViewById(R.id.etcorreo);
         et2=(EditText)findViewById(R.id.etclave);
 
@@ -42,6 +43,17 @@ public class LoginActivity extends AppCompatActivity {
                 Ingresar(correo,clave);
             }
         });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Registrar();
+            }
+        });
+    }
+
+    private void Registrar() {
+        startActivity(new Intent(LoginActivity.this,RegistroActivity.class));
+
     }
 
     private void Ingresar(String correo, String clave) {
