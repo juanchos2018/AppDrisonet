@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.appdrisonet.Acitity.RegistroActivity;
 
@@ -59,5 +60,9 @@ public class LoginActivity extends AppCompatActivity {
     private void Ingresar(String correo, String clave) {
 
         startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+    }
+
+    private void ver(){
+        Toast.makeText(this, "login", Toast.LENGTH_SHORT).show();
     }
 }
