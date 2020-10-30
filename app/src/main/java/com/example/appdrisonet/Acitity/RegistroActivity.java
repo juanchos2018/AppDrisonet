@@ -53,8 +53,6 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
                 else{
                     Toast.makeText(RegistroActivity.this, "campo lleno", Toast.LENGTH_SHORT).show();
                 }
-
-
                 pager.setCurrentItem(vista);
                 tvcontador.setText(""+vista);
 

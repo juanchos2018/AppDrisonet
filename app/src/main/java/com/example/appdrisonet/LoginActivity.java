@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+
         btn1=(Button)findViewById(R.id.btnregistrar);
         btn2=(Button)findViewById(R.id.btningresar);
         btn3=(Button)findViewById(R.id.btnregistrar);
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
                 Registrar();
             }
         });
+
+
     }
 
     private void Registrar() {
