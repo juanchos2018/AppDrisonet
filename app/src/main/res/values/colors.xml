@@ -8,4 +8,11 @@
     <color name="blue_link">#257df1</color>
     <color name="amarillo">#FFCF00</color>
     <color name="morado">#76448A</color>
+
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorPurple">#983CFF</color>
+    <color name="colorPurpleT">#64983cff</color>
+    <color name="colorBlue">#2FB4FF</color>
+    <color name="colorBlueT">#642fb4ff</color>
 </resources>

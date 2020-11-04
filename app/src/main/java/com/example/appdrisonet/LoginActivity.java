@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.appdrisonet.Acitity.RegistroActivity;
@@ -14,8 +15,9 @@ import com.example.appdrisonet.Acitity.RegistroActivity;
 public class LoginActivity extends AppCompatActivity {
 
 
-    Button btn1,btn2,btn3;
+    Button btningresar,btn3;
     EditText et1,et2;
+    private ImageButton btnregistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +26,20 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        btn1=(Button)findViewById(R.id.btnregistrar);
-        btn2=(Button)findViewById(R.id.btningresar);
-        btn3=(Button)findViewById(R.id.btnregistrar);
+        btnregistrar=(ImageButton)findViewById(R.id.btnregistrar);
+        btningresar=(Button)findViewById(R.id.btningresar);
+        //btn3=(Button)findViewById(R.id.btnregistrar);
         et1=(EditText)findViewById(R.id.etcorreo);
         et2=(EditText)findViewById(R.id.etclave);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, RegistroActivity.class));
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btningresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String correo=et1.getText().toString();
@@ -45,12 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 Ingresar(correo,clave);
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Registrar();
-            }
-        });
+
 
 
     }

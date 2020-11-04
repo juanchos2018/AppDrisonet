@@ -1,75 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/bgheader"
+        android:layout_height="220dp"
+        android:background="@drawable/logo24"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvdesc"
+        android:text="bienvenido"
+        android:padding="5dp"
+        android:background="@drawable/bg_ui"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="17sp"
+        android:textColor="@color/blanco"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvlogin"
+        android:layout_below="@+id/tvdesc"
+        android:layout_alignLeft="@+id/tvdesc"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/blanco"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginn"
+        android:text="Login"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="170dp"
+        android:textSize="40sp"
+        android:textColor="@color/colorPurple"
+        android:textStyle="bold"
+        />
+    <ImageView
+        android:id="@+id/circulo1"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/bgheader"
+        android:src="@drawable/cirsulotransparente"
+        android:layout_marginTop="-80dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="-100dp"
+        />
+    <ImageView
+        android:id="@+id/circulo2"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:src="@drawable/cirsulotransparente"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="-100dp"
+        />
+    <ImageView
+        android:id="@+id/circulo3"
+        android:layout_width="182dp"
+        android:layout_height="182dp"
+        android:src="@drawable/circulo"
+        android:layout_marginRight="-80dp"
+        android:layout_marginBottom="-30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+    <ImageView
+        android:id="@+id/circulo4"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:src="@drawable/cirsulotransparente"
+        android:layout_marginRight="-50dp"
+        android:layout_marginBottom="-50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/circulo3"
+        />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:id="@+id/sv">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginTop="120dp"
-                android:src="@drawable/logo24"
-                android:layout_width="250dp"
-                android:layout_height="150dp">
-            </ImageView>
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
-            <EditText
-                android:id="@+id/etcorreo"
-                android:hint="Correo electronico"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="40dp"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/borde_et1">
-            </EditText>
-            <EditText
-                android:id="@+id/etclave"
-                android:hint="Contraseña"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:inputType="textPassword"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/borde_et1">
-            </EditText>
+                android:layout_height="wrap_content"
+                android:id="@+id/cv"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
 
-            <Button
-                android:id="@+id/btningresar"
-                android:text="Ingresar"
-                android:textColor="#FFFF"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_height="55dp"
-                android:background="@drawable/borde_boton2">
-            </Button>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="50dp">
 
-            <Button
-                android:id="@+id/btnregistrar"
-                android:text="Registrar"
-                android:layout_marginTop="20dp"
-                android:textColor="#FFFF"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_height="55dp"
-                android:background="@drawable/borde_boton1">
-            </Button>
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Correo electronico"
+                        android:textColor="@color/colorPurple"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etcorreo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:inputType="text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Contraseña"
+                        android:textColor="@color/colorPurple"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etclave"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:inputType="textPassword" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv"
+                android:layout_alignLeft="@+id/cv"
+                android:layout_alignRight="@+id/cv"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="-50dp"
+                android:layout_marginRight="35dp"
+                android:elevation="10dp">
+
+                <Button
+                    android:id="@+id/btningresar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_ui"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cv"
+                android:layout_alignRight="@+id/cv"
+                android:layout_marginTop="-20dp"
+                android:layout_marginRight="-20dp"
+                android:elevation="10dp">
+
+                <ImageButton
+                    android:id="@+id/btnregistrar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_ui"
+                    android:src="@drawable/ic_add" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                android:text="Forgot your password?"
+                android:textSize="14sp" />
+
+
+
+        </RelativeLayout>
+
+
     </ScrollView>
-</LinearLayout>
+
+
+
+</RelativeLayout>
