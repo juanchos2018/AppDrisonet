@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.appdrisonet.Adapter.ViewPagerAdater;
 import com.example.appdrisonet.Fragment.HomeFragment;
 import com.example.appdrisonet.Fragment.MensajeFragment;
+import com.example.appdrisonet.Fragment.NotificacionesFragment;
 import com.example.appdrisonet.Fragment.PerfilFragment;
 import com.google.android.material.tabs.TabLayout;
 
@@ -45,12 +46,14 @@ public class PrincipalActivity extends AppCompatActivity {
         viewPagerAdater.addFragment(new HomeFragment(),"");
         viewPagerAdater.addFragment(new MensajeFragment(),"");
         viewPagerAdater.addFragment(new PerfilFragment(),"");
+        viewPagerAdater.addFragment(new NotificacionesFragment(),"");
         viewPager.setAdapter(viewPagerAdater);
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.home);
         tabLayout.getTabAt(1).setIcon(R.drawable.message);
         tabLayout.getTabAt(2).setIcon(R.drawable.perfil);
+        tabLayout.getTabAt(3).setIcon(R.drawable.notify);
 
        // tabLayout.getTabAt(0).getIcon().setColorFilter(Color.blue(), PorterDuff.Mode.SRC_IN); R.color.blue_link
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -72,6 +75,9 @@ public class PrincipalActivity extends AppCompatActivity {
                     if (tabLayout.getSelectedTabPosition()==2){
                         titulo.setVisibility(View.GONE);
                     }
+                if (tabLayout.getSelectedTabPosition()==3){
+                    titulo.setVisibility(View.GONE);
+                }
             }
 
             @Override

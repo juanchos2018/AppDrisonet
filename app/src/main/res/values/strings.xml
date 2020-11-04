@@ -2,4 +2,12 @@
     <string name="app_name">DRISONET</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Notificacionesfragment">Hbienvenido a las notificaciones</string>
+    <string name="Mensajefragment">bienvenido a los mensajes</string>
+    <string name="perfilfragment">bienvenido al perfil</string>
+    <string name="pagefragment">bienvenida a la pagina</string>
+    <string name="mtcfragment">bienvenida a la mtc</string>
+
+
 </resources>

@@ -3,6 +3,7 @@ package com.example.appdrisonet.Acitity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.badoualy.stepperindicator.StepperIndicator;
 import com.example.appdrisonet.Adapter.PagerAdapter;
 import com.example.appdrisonet.Fragment.DatosFragment;
+import com.example.appdrisonet.LoginActivity;
 import com.example.appdrisonet.R;
 
 public class RegistroActivity extends AppCompatActivity implements DatosFragment.VerificarDatos {
@@ -95,6 +97,15 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
                 }
             }
         });
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegistroActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
+
 /*
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
