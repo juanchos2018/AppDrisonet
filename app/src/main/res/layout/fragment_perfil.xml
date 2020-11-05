@@ -73,5 +73,95 @@
             android:layout_height="wrap_content">
 
         </TextView>
+
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/colornegro"
+        android:layout_height="1dp">
+
+    </View>
+
+   <GridLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/idgrip"
+       android:padding="5dp"
+       android:columnCount="2"
+       android:rowCount="2">
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/card1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginBottom="10dp"
+           app:cardCornerRadius="8dp"
+           app:cardElevation="6dp"
+           android:layout_columnWeight="1"
+           android:layout_rowWeight="1"
+           android:foreground="?selectableItemBackground"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_horizontal|center_vertical"
+               android:orientation="vertical">
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_marginTop="5dp"
+                   android:src="@mipmap/ic_logop"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center_horizontal"
+                   android:text="Contraseña"
+                   android:textAlignment="center"
+                   android:textColor="#000"/>
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/card2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginBottom="10dp"
+           app:cardCornerRadius="8dp"
+           app:cardElevation="6dp"
+           android:layout_columnWeight="1"
+           android:layout_rowWeight="1"
+           android:foreground="?selectableItemBackground"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_horizontal|center_vertical"
+               android:orientation="vertical">
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_marginTop="5dp"
+                   android:src="@mipmap/ic_logop"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center_horizontal"
+                   android:text="Mi Ranking"
+                   android:textAlignment="center"
+                   android:textColor="#000"/>
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
 </LinearLayout>
