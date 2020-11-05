@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     Button btningresar,btn3;
-    EditText et1,et2;
+    EditText etcorreo,etpassword;
     private ImageButton btnregistrar;
 
     @Override
@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         btnregistrar=(ImageButton)findViewById(R.id.btnregistrar);
         btningresar=(Button)findViewById(R.id.btningresar);
         //btn3=(Button)findViewById(R.id.btnregistrar);
-        et1=(EditText)findViewById(R.id.etcorreo);
-        et2=(EditText)findViewById(R.id.etclave);
+        etcorreo=(EditText)findViewById(R.id.etcorreo);
+        etpassword=(EditText)findViewById(R.id.etclave);
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,9 +42,16 @@ public class LoginActivity extends AppCompatActivity {
         btningresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String correo=et1.getText().toString();
-                String clave =et2.getText().toString();
-                Ingresar(correo,clave);
+                String correo = etcorreo.getText().toString();
+                String clave = etpassword.getText().toString();
+                if( correo.equals("juan_12@upt.pe") && clave.equals("123456") )
+                {
+                    Ingresar(correo,clave);
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "Tus datos son incorrectos", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

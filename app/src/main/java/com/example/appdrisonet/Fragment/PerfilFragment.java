@@ -34,6 +34,8 @@ public class PerfilFragment extends Fragment {
     CardView carperfil;
     TextView tvnombre;
 
+    private TextView idverperfil;
+
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -72,6 +74,8 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
 
+        idverperfil = vista.findViewById(R.id.idverperfil);
+
         carperfil=(CardView)vista.findViewById(R.id.carperfil);
         tvnombre=(TextView)vista.findViewById(R.id.tvnombre);
         carperfil.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,12 @@ public class PerfilFragment extends Fragment {
             }
         });
         tvnombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Perfil();
+            }
+        });
+        idverperfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Perfil();
