@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -20,6 +22,9 @@ import com.example.appdrisonet.Fragment.MensajeFragment;
 import com.example.appdrisonet.Fragment.NotificacionesFragment;
 import com.example.appdrisonet.Fragment.PerfilFragment;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -28,6 +33,13 @@ public class PrincipalActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     TextView titulo;
+    public FirebaseUser currentUser;
+
+    private ProgressDialog progressDialog;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private DatabaseReference userDatabaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +102,31 @@ public class PrincipalActivity extends AppCompatActivity {
 
             }
         });
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = mAuth.getCurrentUser();
+        //checking logging, if not login redirect to Login ACTIVITY
+        if (currentUser == null ){
+            mAuth.signOut();
+            logOutUser(); // Return to Login activity
+        }
+        if (currentUser != null ){
+            userDatabaseReference.child("active_now").setValue("true");
+
+        }
+    }
+
+    private void logOutUser() {
+        Intent loginIntent =  new Intent(PrincipalActivity.this, LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        finish();
     }
 
     @Override

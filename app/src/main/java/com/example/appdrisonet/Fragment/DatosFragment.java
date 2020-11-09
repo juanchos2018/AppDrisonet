@@ -29,6 +29,8 @@ import com.example.appdrisonet.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DatosFragment#newInstance} factory method to
@@ -51,6 +53,7 @@ public class DatosFragment extends Fragment {
     View vista;
     private ProgressDialog progressDialog;
     private VerificarDatos mListener;
+    List<String> papelietas;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -86,7 +89,9 @@ public class DatosFragment extends Fragment {
         btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Verificar2();
+              //  Verificar2();
+                String dni = etdni.getText().toString();
+                ConsutarDni(dni);
             }
         });
         return vista;
