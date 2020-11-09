@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class DatosFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String TAG = "DatosFragment";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -109,6 +111,11 @@ public class DatosFragment extends Fragment {
             Toast.makeText(getContext(), "No vacio", Toast.LENGTH_SHORT).show();
         }
         mListener.VerificaCampos(estadoCampos);
+    }
+
+    private  void  nada()
+    {
+        Log.e(TAG, "nada: ");
     }
     private  void  ConsutarDni(final String dni){
         if(TextUtils.isEmpty(dni)){
