@@ -4,8 +4,18 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".Fragment.Datos2Fragment">
+
     <TextView
+        android:id="@+id/tvnombreUsu"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Correo" />
@@ -17,6 +27,7 @@
     </EditText>
 
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Contraseña" />

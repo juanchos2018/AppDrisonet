@@ -17,5 +17,13 @@
     <color name="colorBlueT">#642fb4ff</color>
 
 
+    <color name="dot_active">#000000</color>
+    <color name="bgVerde">#08B34F</color>
+    <color name="bgAmarillo">#ECAE27</color>
+    <!--<color name="bgAzul">#0569C3</color>-->
+    <color name="bgAzul">#503AD7</color>
+    <color name="bgRojo">#EB0A1D</color>
+    <color name="colorBackground">#FFFFFF</color>
+
     <color name="colornegro">#000000</color>
 </resources>

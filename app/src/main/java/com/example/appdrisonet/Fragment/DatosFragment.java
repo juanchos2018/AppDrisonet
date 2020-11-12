@@ -32,11 +32,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DatosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DatosFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -48,7 +44,7 @@ public class DatosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    TextView txtnombre,txtapellidoP,txtapellidoM;
+    TextView txtnombre,txtapellidoP,txtapellidoM,tvdni;
     EditText etcorreo,etdni;
     boolean estadoCampos;
     Button btnbuscar;
@@ -56,6 +52,9 @@ public class DatosFragment extends Fragment {
     private ProgressDialog progressDialog;
     private VerificarDatos mListener;
     List<String> papelietas;
+    public static  String Nombreusuario;
+    public  static String ApellidosUsuario;
+    public static String DniUsuario;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -81,10 +80,11 @@ public class DatosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         vista = inflater.inflate(R.layout.fragment_datos, container, false);
-        txtnombre=(TextView)vista.findViewById(R.id.tvnombreusu);
+        txtnombre=(TextView)vista.findViewById(R.id.tvnombres);
         txtapellidoP=(TextView)vista.findViewById(R.id.tvapPaterno);
-        txtapellidoP=(TextView)vista.findViewById(R.id.tvapPaterno);
+        txtapellidoM=(TextView)vista.findViewById(R.id.tvapeMaterno);
         etdni=(EditText)vista.findViewById(R.id.etDni);
+        tvdni=(TextView)vista.findViewById(R.id.tvdni);
         btnbuscar=(Button)vista.findViewById(R.id.btnbuscar);
 
 
@@ -119,7 +119,7 @@ public class DatosFragment extends Fragment {
     }
     private  void  ConsutarDni(final String dni){
         if(TextUtils.isEmpty(dni)){
-            etdni.setError("campo reqierodo");
+            etdni.setError("campo requerido");
         }
         else {
             progressDialog =new ProgressDialog(getContext());
@@ -138,7 +138,8 @@ public class DatosFragment extends Fragment {
                                 progressDialog.dismiss();
                                 JSONObject jsonObject2=new JSONObject(responses);
                                 //  JSONObject nombre=jsonObject.getJSONObject("nombres");
-                                etdni.setText(dni);
+                             //   etdni.setText(dni);
+                                tvdni.setText(dni);
                                 String name=jsonObject2.getString("primerNombre");
                                 String name2=jsonObject2.getString("segundoNombre");
                                 String apellido_paterno=jsonObject2.getString("apellidoPaterno");
@@ -146,6 +147,11 @@ public class DatosFragment extends Fragment {
                                 txtnombre.setText(name +" "+name2);
                                 txtapellidoP.setText(apellido_paterno );
                                 txtapellidoM.setText(apellido_materno);
+                                Nombreusuario=name+" "+ name2;
+                                ApellidosUsuario= apellido_materno +" "+apellido_paterno;
+
+                                Log.e(TAG, name);
+                                
                              //   ocultar();
                             }
                             catch (JSONException e){
@@ -159,7 +165,7 @@ public class DatosFragment extends Fragment {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
-
+                    progressDialog.dismiss();
                 }
             });
             int socketTimeout = 30000;
@@ -175,7 +181,6 @@ public class DatosFragment extends Fragment {
         if (TextUtils.isEmpty(correo)){
             estado=true;
         }
-
         return  estado;
     }
 

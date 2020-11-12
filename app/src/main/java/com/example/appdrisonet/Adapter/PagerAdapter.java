@@ -24,7 +24,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return DatosFragment.newInstance();
             case 1:
-                return Datos2Fragment.newInstance();
+                String nombre ="juan carlos pag";
+                return Datos2Fragment.newInstance(nombre);
             case 2:
                 return BottonSheetFragment.newInstance();
             default:

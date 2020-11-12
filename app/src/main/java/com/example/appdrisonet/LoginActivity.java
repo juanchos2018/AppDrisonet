@@ -94,13 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         String userUID = mAuth.getCurrentUser().getUid();
                         String userDeiceToken = FirebaseInstanceId.getInstance().getToken();
-
-                        userDatabaseReference.child(userUID).child("device_token").setValue(userDeiceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                checkVerifiedEmail();
-                            }
-                        });
+                        checkVerifiedEmail();
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "Verifique su Email", Toast.LENGTH_SHORT).show();
