@@ -13,7 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appdrisonet.Acitity.PerfilActivity;
+import com.example.appdrisonet.Acitity.RegistroActivity;
+import com.example.appdrisonet.LoginActivity;
 import com.example.appdrisonet.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,10 +34,13 @@ public class PerfilFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FirebaseAuth mAuth;
+
     CardView carperfil;
     TextView tvnombre;
 
     private TextView idverperfil;
+    private TextView signup;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -76,6 +82,8 @@ public class PerfilFragment extends Fragment {
 
         idverperfil = vista.findViewById(R.id.idverperfil);
 
+        signup = vista.findViewById(R.id.signup);
+
         carperfil=(CardView)vista.findViewById(R.id.carperfil);
         tvnombre=(TextView)vista.findViewById(R.id.tvnombre);
         carperfil.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +104,15 @@ public class PerfilFragment extends Fragment {
                 Perfil();
             }
         });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //mAuth.signOut();
+                //startActivity(new Intent(PerfilFragment.this, LoginActivity.class));
+            }
+        });
+
         return vista;
     }
 

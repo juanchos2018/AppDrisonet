@@ -28,8 +28,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 public class LoginActivity extends AppCompatActivity {
 
 
-    Button btningresar,btn3;
-    EditText etcorreo,etpassword;
+    private Button btningresar;
+    private EditText etcorreo,etpassword;
     private ImageButton btnregistrar;
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
 
         btnregistrar=(ImageButton)findViewById(R.id.btnregistrar);
         btningresar=(Button)findViewById(R.id.btningresar);
-        //btn3=(Button)findViewById(R.id.btnregistrar);
         etcorreo=(EditText)findViewById(R.id.etcorreo);
         etpassword=(EditText)findViewById(R.id.etclave);
 
@@ -63,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String correo = etcorreo.getText().toString();
                 String clave = etpassword.getText().toString();
+
+                //startActivity(new Intent(LoginActivity.this,PrincipalActivity.class));
                     ingresar(correo,clave);
 
             }

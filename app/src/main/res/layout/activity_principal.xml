@@ -29,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:background="@color/blanco"
@@ -62,6 +64,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -70,4 +74,24 @@
         app:layout_behavior="com.google.adnroid.material-appbar.AppBarLayout$ScrollingViewBehavior">
 
     </androidx.viewpager.widget.ViewPager>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="10dp">
+
+        <ImageButton
+            android:id="@+id/btn_ranking"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_mensajes"
+            android:src="@drawable/ic_ranking"
+            />
+    </RelativeLayout>
+
+
 </RelativeLayout>

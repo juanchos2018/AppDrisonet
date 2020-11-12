@@ -117,7 +117,7 @@ public class PrincipalActivity extends AppCompatActivity {
             logOutUser(); // Return to Login activity
         }
         if (currentUser != null ){
-            userDatabaseReference.child("active_now").setValue("true");
+//            userDatabaseReference.child("active_now").setValue("true");
 
         }
     }

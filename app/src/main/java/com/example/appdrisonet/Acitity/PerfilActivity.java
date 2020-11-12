@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.appdrisonet.LoginActivity;
 import com.example.appdrisonet.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +57,9 @@ public class PerfilActivity extends AppCompatActivity {
     private final int MIS_PERMISOS = 100;
 
     ImageButton imageButton;
+
+    private ImageView recuperarclave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +74,8 @@ public class PerfilActivity extends AppCompatActivity {
         });
 
         imageButton=(ImageButton)findViewById(R.id.btnregistrar);
+        recuperarclave = findViewById(R.id.recuperarclave);
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +83,13 @@ public class PerfilActivity extends AppCompatActivity {
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.setType("image/");
                 startActivityForResult(intent.createChooser(intent,"Seleccione"),COD_SELECCIONA);// 10
+            }
+        });
+
+        recuperarclave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PerfilActivity.this,Clave.class));
             }
         });
 

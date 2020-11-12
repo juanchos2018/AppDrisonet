@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.appdrisonet">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logop"
@@ -10,26 +11,25 @@
         android:roundIcon="@mipmap/ic_logop_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Acitity.Clave"></activity>
         <activity
             android:name=".Acitity.PerfilActivity"
-            android:theme="@style/AppThemeNoActionBar"></activity>
+            android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".Acitity.RegistroActivity" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.FullScreen">
-        </activity>
+            android:theme="@style/AppTheme.FullScreen"></activity>
         <activity
             android:name=".PrincipalActivity"
-            android:theme="@style/AppThemeNoActionBar" >
-
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity" />
+
         <service
             android:name=".Fcm"
             android:exported="false">

@@ -26,4 +26,6 @@
     <color name="colorBackground">#FFFFFF</color>
 
     <color name="colornegro">#000000</color>
+
+    <color name="colorllamada">#00ff00</color>
 </resources>
