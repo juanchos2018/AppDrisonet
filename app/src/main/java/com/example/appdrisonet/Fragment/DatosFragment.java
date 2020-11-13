@@ -2,6 +2,7 @@ package com.example.appdrisonet.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.appdrisonet.Acitity.RegistroActivity;
+import com.example.appdrisonet.Adapter.PagerAdapter;
 import com.example.appdrisonet.R;
 
 import org.json.JSONException;
@@ -48,7 +51,10 @@ public class DatosFragment extends Fragment {
     EditText etcorreo,etdni;
     boolean estadoCampos;
     Button btnbuscar;
+    Button btn;
     View vista;
+   // private BootonClickLisntener mListener;
+
     private ProgressDialog progressDialog;
     private VerificarDatos mListener;
     List<String> papelietas;
@@ -86,8 +92,23 @@ public class DatosFragment extends Fragment {
         etdni=(EditText)vista.findViewById(R.id.etDni);
         tvdni=(TextView)vista.findViewById(R.id.tvdni);
         btnbuscar=(Button)vista.findViewById(R.id.btnbuscar);
+        btn=(Button)vista.findViewById(R.id.btnver);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegistroActivity.name="kiara loca";
+             //   Datos2Fragment.newInstance("kiara loca");
+             //   PagerAdapter.nombreGlobal="kiara loca";
+                mListener.onButtonclick("kiara loca");
+                SharedPreferences preferences=getContext().getSharedPreferences("nombre", Context.MODE_PRIVATE);
+                String nombre="kiara loca";
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putString("nombre",nombre);
+                editor.commit();
+            }
+        });
 
-
+        RegistroActivity.name="Kiara";
         btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +119,7 @@ public class DatosFragment extends Fragment {
         });
         return vista;
     }
+
 
     private void Verificar2() {
 
@@ -149,6 +171,13 @@ public class DatosFragment extends Fragment {
                                 txtapellidoM.setText(apellido_materno);
                                 Nombreusuario=name+" "+ name2;
                                 ApellidosUsuario= apellido_materno +" "+apellido_paterno;
+                                SharedPreferences preferences=getContext().getSharedPreferences("nombre", Context.MODE_PRIVATE);
+
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("nombre",Nombreusuario);
+                                editor.putString("apellido",ApellidosUsuario);
+                                editor.putString("dni",dni);
+                                editor.commit();
 
                                 Log.e(TAG, name);
                                 
@@ -203,6 +232,7 @@ public class DatosFragment extends Fragment {
     }
     public interface VerificarDatos {
         public void VerificaCampos(boolean va);
+         public   void  onButtonclick(String texto);
 
     }
 }

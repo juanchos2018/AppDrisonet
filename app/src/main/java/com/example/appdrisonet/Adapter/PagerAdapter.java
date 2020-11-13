@@ -11,12 +11,14 @@ import com.example.appdrisonet.Fragment.DatosFragment;
 import com.example.appdrisonet.Fragment.MtcFragment;
 import com.example.appdrisonet.Fragment.PageFragment;
 
-public class PagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter implements DatosFragment.VerificarDatos {
 
-    public PagerAdapter(@NonNull FragmentManager fm) {
+  public  static   String nombreGlobal;
+    public PagerAdapter(@NonNull FragmentManager fm,String nombre) {
         super(fm);
+        nombreGlobal=nombre;
     }
-
+    String nombre;
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -41,5 +43,15 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return "Page " + position;
+    }
+
+    @Override
+    public void VerificaCampos(boolean va) {
+
+    }
+
+    @Override
+    public void onButtonclick(String texto) {
+        nombreGlobal=texto;
     }
 }

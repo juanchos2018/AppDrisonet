@@ -24,6 +24,7 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
     int vista=0;
 
     boolean campoLLenoFragmentDatos;
+    public  static  String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
         final ViewPager pager = findViewById(R.id.pager);
         assert pager != null;
 
-        pager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+        pager.setAdapter(new PagerAdapter(getSupportFragmentManager(),name));
         final StepperIndicator indicator = findViewById(R.id.stepper_indicator);
 
      //   indicator.setViewPager(pager, true);
@@ -157,5 +158,10 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
     @Override
     public void VerificaCampos(boolean va) {
         campoLLenoFragmentDatos=va;
+    }
+
+    @Override
+    public void onButtonclick(String texto) {
+
     }
 }

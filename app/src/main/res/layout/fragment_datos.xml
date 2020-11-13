@@ -131,6 +131,13 @@
             android:layout_height="wrap_content"
             android:text="Apellidos" />
     </LinearLayout>
+    <Button
+        android:id="@+id/btnver"
+        android:text="grbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylcerPapeletas"
         android:layout_width="match_parent"
