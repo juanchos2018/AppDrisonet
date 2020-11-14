@@ -15,8 +15,10 @@ import android.widget.Toast;
 import com.example.appdrisonet.Acitity.PerfilActivity;
 import com.example.appdrisonet.Acitity.RegistroActivity;
 import com.example.appdrisonet.LoginActivity;
+import com.example.appdrisonet.PrincipalActivity;
 import com.example.appdrisonet.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +37,7 @@ public class PerfilFragment extends Fragment {
     private String mParam2;
 
     private FirebaseAuth mAuth;
+    public FirebaseUser currentUser;
 
     CardView carperfil;
     TextView tvnombre;
@@ -105,9 +108,13 @@ public class PerfilFragment extends Fragment {
             }
         });
 
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                logOutUser();
                 //mAuth.signOut();
                 //startActivity(new Intent(PerfilFragment.this, LoginActivity.class));
             }
@@ -119,6 +126,14 @@ public class PerfilFragment extends Fragment {
     private void Perfil() {
 
         startActivity(new Intent(getContext(), PerfilActivity.class));
+
+    }
+    private void logOutUser() {
+        mAuth.signOut();
+       // logOutUser();
+        Intent loginIntent =  new Intent(getContext(), LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
 
     }
 }

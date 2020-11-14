@@ -92,13 +92,12 @@ public class DatosFragment extends Fragment {
         etdni=(EditText)vista.findViewById(R.id.etDni);
         tvdni=(TextView)vista.findViewById(R.id.tvdni);
         btnbuscar=(Button)vista.findViewById(R.id.btnbuscar);
+        /*
         btn=(Button)vista.findViewById(R.id.btnver);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RegistroActivity.name="kiara loca";
-             //   Datos2Fragment.newInstance("kiara loca");
-             //   PagerAdapter.nombreGlobal="kiara loca";
                 mListener.onButtonclick("kiara loca");
                 SharedPreferences preferences=getContext().getSharedPreferences("nombre", Context.MODE_PRIVATE);
                 String nombre="kiara loca";
@@ -107,6 +106,8 @@ public class DatosFragment extends Fragment {
                 editor.commit();
             }
         });
+
+         */
 
         RegistroActivity.name="Kiara";
         btnbuscar.setOnClickListener(new View.OnClickListener() {

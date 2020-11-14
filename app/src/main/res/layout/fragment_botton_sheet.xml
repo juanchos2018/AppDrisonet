@@ -29,7 +29,6 @@
                     android:id="@+id/imgprevia"
                     android:layout_width="50dp"
                     android:layout_height="50dp">
-
                 </ImageView>
                 <TextView
                     android:id="@+id/idnombrearchivo"
@@ -37,7 +36,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Detalle de Esto"
+                    android:text="Detalle de publicacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </TextView>
@@ -58,32 +57,21 @@
                     android:background="@color/gray" />
 
                 <TextView
-                    android:id="@+id/id_tvdescargar"
-                    android:text="   Descargar"
+                    android:id="@+id/id_solicitud"
+                    android:text="   Enviar Solicitud"
+                    android:layout_marginTop="9dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+
+                    android:text=" "
                     android:layout_marginTop="9dp"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-                </TextView>
-                <TextView
-                    android:id="@+id/id_tvcompartir"
-                    android:text="   Compartir"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/id_tvmover"
-                    android:text="   Mover"
-                    android:textStyle="bold"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                 </TextView>
             </LinearLayout>
         </RelativeLayout>

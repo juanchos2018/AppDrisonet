@@ -5,9 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-
     >
-
     <androidx.cardview.widget.CardView
         android:layout_marginBottom="15dp"
         android:layout_marginTop="5dp"
@@ -54,6 +52,7 @@
                         android:layout_height="wrap_content">
                     </ImageView>
                     <TextView
+                        android:id="@+id/tvdireccion"
                         android:text="Direccion avenida 1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -102,6 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:id="@+id/imgphone"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_phone"
                     android:background="@drawable/bg_llamada"
@@ -112,6 +112,7 @@
                     android:layout_height="wrap_content">
                 </ImageView>
                 <ImageView
+                    android:id="@+id/imgchat"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/ic_flecha"
                     android:background="@drawable/bg_mensajes"

@@ -11,17 +11,17 @@
         android:id="@+id/tvnombreusu"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
         android:text="DATOS PERSONALES" />
+
     <EditText
         android:id="@+id/etDni"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </EditText>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"></EditText>
 
     <Button
         android:text="consultar dni"
@@ -36,7 +36,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="40dp"
         android:background="@color/blue_link"
         android:layout_height="2.5dp">
@@ -131,17 +131,19 @@
             android:layout_height="wrap_content"
             android:text="Apellidos" />
     </LinearLayout>
-    <Button
-        android:id="@+id/btnver"
-        android:text="grbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <!--
+  <Button
+      android:id="@+id/btnver"
+      android:text="grbar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
 
-    </Button>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recylcerPapeletas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </androidx.recyclerview.widget.RecyclerView>
+  </Button>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recylcerPapeletas"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+  </androidx.recyclerview.widget.RecyclerView>-->
 
 </LinearLayout>

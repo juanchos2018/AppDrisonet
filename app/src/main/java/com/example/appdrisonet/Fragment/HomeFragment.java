@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.appdrisonet.Acitity.ChatActivity;
+import com.example.appdrisonet.Acitity.MapaActivity;
 import com.example.appdrisonet.Adapter.AdapterNoticias;
 import com.example.appdrisonet.Clases.Noticias;
 import com.example.appdrisonet.DialogoFratment.BottonSheetFragment;
@@ -117,7 +119,6 @@ public class HomeFragment extends Fragment {
             protected void onBindViewHolder(@NonNull final Items items, final int i, @NonNull Noticias tutores) {
                 final String key = getRef(i).getKey();
                 referenceNoticia.child(key).addValueEventListener(new ValueEventListener() {
-
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         final Context context = getContext();
@@ -126,6 +127,7 @@ public class HomeFragment extends Fragment {
                             final String descripcion=dataSnapshot.child("descripcion_noticia").getValue().toString();
                             final String rutafoto=dataSnapshot.child("img_noticia").getValue().toString();
                             final String rutausuario=dataSnapshot.child("img_usuario").getValue().toString();
+                            final String key_noticia=dataSnapshot.child("key_noticia").getValue().toString();
 
                             items.tvnombre_usu.setText(usuario);
                             items.tvdescripcionnoticia.setText(descripcion);
@@ -150,16 +152,23 @@ public class HomeFragment extends Fragment {
                                 @Override
                                 public void onClick(View view) {
                                     BottonSheetFragment bottomSheetDialog = BottonSheetFragment.newInstance();
-
-                                    bottomSheetDialog.show(getChildFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+                                    bottomSheetDialog.key_noticia=key_noticia;
+                                    bottomSheetDialog.show(getChildFragmentManager(), "Bottom Sheet Dialog Fragment");                                }
+                            });
+                            items.tvdireccion.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    startActivity(new Intent(getContext(), MapaActivity.class));
                                 }
                             });
-
+                            items.imgchat.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    startActivity(new Intent(getContext(), ChatActivity.class));
+                                }
+                            });
                         }
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
@@ -182,8 +191,9 @@ public class HomeFragment extends Fragment {
         adapter.startListening();
     }
     public  static class Items extends RecyclerView.ViewHolder{
-        TextView tvnombre_usu,tvdescripcionnoticia;
-        ImageView imgnoticia,imgperfil,imgDetalle;
+        TextView tvnombre_usu,tvdescripcionnoticia,tvdireccion;
+        ImageView imgnoticia,imgperfil,imgDetalle,imgphone,imgchat;
+        String key_empresa,ke_publicacion;
 
         public Items(@NonNull View itemView) {
             super(itemView);
@@ -192,6 +202,9 @@ public class HomeFragment extends Fragment {
             imgnoticia=(ImageView)itemView.findViewById(R.id.imgnoticia);
             imgperfil=(ImageView)itemView.findViewById(R.id.imgperfil);
             imgDetalle=(ImageView)itemView.findViewById(R.id.imgDetalle);
+            tvdireccion=(TextView)itemView.findViewById(R.id.tvdireccion);
+            imgphone=(ImageView)itemView.findViewById(R.id.imgphone);
+            imgchat=(ImageView)itemView.findViewById(R.id.imgchat);
 
         }
     }
