@@ -26,6 +26,8 @@ import com.example.appdrisonet.DialogoFratment.BottonSheetFragment;
 import com.example.appdrisonet.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,15 +47,18 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-
+    String user_id;
+    private FirebaseUser user;
+    private FirebaseAuth mAuth;
+    private DatabaseReference referenceUsuarios;
+    public FirebaseUser currentUser;
     RecyclerView recycler;
     private DatabaseReference referenceNoticia;
 
     ArrayList<Noticias> listaNoticias;
     AdapterNoticias adapter;
 
-
+    String dni,Completos;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -85,8 +90,28 @@ public class HomeFragment extends Fragment {
         recycler=vista.findViewById(R.id.recycler1);
         recycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        referenceNoticia= FirebaseDatabase.getInstance().getReference("Noticias");
+        referenceNoticia= FirebaseDatabase.getInstance().getReference("Publicaciones");
         listaNoticias = new ArrayList<>();
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        user_id =  mAuth.getCurrentUser().getUid();
+        referenceUsuarios = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(user_id);
+        referenceUsuarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
+                String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
+                String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
+                dni = dataSnapshot.child("dni_usuario").getValue().toString();
+                Completos=nombre+" "+apellido;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         return vista;
     }
@@ -153,6 +178,8 @@ public class HomeFragment extends Fragment {
                                 public void onClick(View view) {
                                     BottonSheetFragment bottomSheetDialog = BottonSheetFragment.newInstance();
                                     bottomSheetDialog.key_noticia=key_noticia;
+                                    bottomSheetDialog.dni_usuario=dni;
+                                    bottomSheetDialog.nombrecompletos=Completos;
                                     bottomSheetDialog.show(getChildFragmentManager(), "Bottom Sheet Dialog Fragment");                                }
                             });
                             items.tvdireccion.setOnClickListener(new View.OnClickListener() {

@@ -108,6 +108,9 @@ public class Datos2Fragment extends Fragment {
         btnregistrar=(Button)vista.findViewById(R.id.btnregistrarUsuario);
         etcorreo=(EditText)vista.findViewById(R.id.tvcorreo);
         etpassword=(EditText)vista.findViewById(R.id.tvpassword);
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
 
         final Bundle arguments = getArguments();
         if (arguments == null || !arguments.containsKey("nombre")) {

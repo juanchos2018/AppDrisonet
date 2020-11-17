@@ -29,8 +29,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,7 +60,10 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
     android.app.AlertDialog.Builder builder2;
     AlertDialog aler2;
     private DatabaseReference referenceNoticia;
+    private FirebaseAuth mAuth;
 
+    public String  dni_usuario,nombrecompletos;
+    private FirebaseUser user;
 
     public BottonSheetFragment() {
         // Required empty public constructor
@@ -106,7 +115,7 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
         return vista;
     }
     private void menssaje(String estado){
-
+        RegistrarSolicitud(this.key_noticia);
         builder2 = new AlertDialog.Builder(getContext());
         Button btcerrrar;
         TextView tvestado;
@@ -131,9 +140,14 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
         aler2.show();
     }
     private  void RegistrarSolicitud(String key_noticia){
-        referenceNoticia= FirebaseDatabase.getInstance().getReference("MisPeticiones").child(key_noticia);
+        referenceNoticia= FirebaseDatabase.getInstance().getReference("Solicitudes").child(key_noticia);
         String key = referenceNoticia.push().getKey();
-        Solicitud o =new Solicitud(key,"","","","");
+        mAuth = FirebaseAuth.getInstance();
+        String key_usu = mAuth.getCurrentUser().getUid();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        Date date = new Date();
+        String fechas = dateFormat.format(date);
+        Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key);
         referenceNoticia.child(key).setValue(o).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -146,10 +160,8 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getContext(), "Error :" +e.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
-
     }
     private void resetAnimationView() {
         currentAnimationFrame = 0;

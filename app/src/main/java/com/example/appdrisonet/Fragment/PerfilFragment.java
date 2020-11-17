@@ -3,15 +3,19 @@ package com.example.appdrisonet.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.appdrisonet.Acitity.PerfilActivity;
 import com.example.appdrisonet.Acitity.RegistroActivity;
 import com.example.appdrisonet.LoginActivity;
@@ -19,6 +23,11 @@ import com.example.appdrisonet.PrincipalActivity;
 import com.example.appdrisonet.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,10 +50,12 @@ public class PerfilFragment extends Fragment {
 
     CardView carperfil;
     TextView tvnombre;
-
+    ImageView imgperfil2;
     private TextView idverperfil;
     private TextView signup;
-
+    private DatabaseReference referenceUsuarios;
+    String user_id;
+    private FirebaseUser user;
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -84,7 +95,7 @@ public class PerfilFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         idverperfil = vista.findViewById(R.id.idverperfil);
-
+        imgperfil2=(ImageView)vista.findViewById(R.id.imgperfil2);
         signup = vista.findViewById(R.id.signup);
 
         carperfil=(CardView)vista.findViewById(R.id.carperfil);
@@ -107,8 +118,6 @@ public class PerfilFragment extends Fragment {
                 Perfil();
             }
         });
-
-
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         signup.setOnClickListener(new View.OnClickListener() {
@@ -119,9 +128,41 @@ public class PerfilFragment extends Fragment {
                 //startActivity(new Intent(PerfilFragment.this, LoginActivity.class));
             }
         });
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        user_id =  mAuth.getCurrentUser().getUid();
+        referenceUsuarios = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(user_id);
+        referenceUsuarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
+                String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
+                String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
+
+                tvnombre.setText(nombre+ " "+apellido);
+                if (img_usuario.equals("default_image")){
+                    imgperfil2.setImageResource(R.drawable.default_profile_image);
+                }
+                else{
+                    Glide.with(getActivity().getApplicationContext())
+                            .load(img_usuario)
+                            .placeholder(R.drawable.default_profile_image)
+                            .fitCenter()
+                            .centerCrop()
+                            .error(R.drawable.default_profile_image)
+                            .into(imgperfil2);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         return vista;
     }
+
 
     private void Perfil() {
 
