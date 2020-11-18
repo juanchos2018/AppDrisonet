@@ -34,7 +34,8 @@
             <ImageView
                 android:id="@+id/imgperfil2"
                 android:layout_width="50dp"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:src="@drawable/default_profile_image">
             </ImageView>
         </androidx.cardview.widget.CardView>
 
@@ -44,7 +45,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvnombre"
-                android:text="Nombre de usuario"
+                android:text="JHONY JOSE MAMANI LIMACHE"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
