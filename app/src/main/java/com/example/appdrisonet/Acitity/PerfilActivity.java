@@ -14,8 +14,10 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.appdrisonet.LoginActivity;
 import com.example.appdrisonet.R;
 import com.google.android.gms.tasks.Continuation;
@@ -25,7 +27,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -47,7 +53,9 @@ public class PerfilActivity extends AppCompatActivity {
 
     private DatabaseReference referenceUsuarios;
     private FirebaseAuth mAuth;
-    String correoprofe;
+
+    private FirebaseUser user;
+
     public FirebaseUser currentUser;
     private StorageReference mStorageRef;
 
@@ -55,7 +63,7 @@ public class PerfilActivity extends AppCompatActivity {
     private static final int COD_FOTO = 20;
     String user_id;
     private final int MIS_PERMISOS = 100;
-
+    TextView tvdatos;
     ImageButton imageButton;
 
     private ImageView recuperarclave;
@@ -66,15 +74,51 @@ public class PerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
 
         toolbar = findViewById(R.id.toolbar1);
+        tvdatos=(TextView)findViewById(R.id.nombresusuario);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        user_id =  mAuth.getCurrentUser().getUid();
+        referenceUsuarios = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(user_id);
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         imageButton=(ImageButton)findViewById(R.id.btnregistrar);
         recuperarclave = findViewById(R.id.recuperarclave);
+        imgfoto=(ImageView)findViewById(R.id.imgperfil);
+        referenceUsuarios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
+                String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
+                String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
+
+                tvdatos.setText(nombre+ " "+apellido);
+
+
+                if (img_usuario.equals("default_image")){
+                    imgfoto.setImageResource(R.drawable.default_profile_image);
+
+                }
+                else{
+                    Glide.with(getApplicationContext())
+                            .load(img_usuario)
+                            .placeholder(R.drawable.default_profile_image)
+                            .fitCenter()
+                            .centerCrop()
+                            .error(R.drawable.default_profile_image)
+                            .into(imgfoto);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +151,7 @@ public class PerfilActivity extends AppCompatActivity {
                 }
                 uri=data.getData();
                 imgfoto.setImageURI(uri);
-/*
+
                 try {
                     FirebaseStorage storage = FirebaseStorage.getInstance();
                     progressDialog = new ProgressDialog(this);
@@ -115,7 +159,7 @@ public class PerfilActivity extends AppCompatActivity {
                     progressDialog.setTitle("Subiendo..");
                     progressDialog.setProgress(0);
                     progressDialog.show();
-                    final StorageReference mountainsRef=mStorageRef.child(correoprofe).child(uri.getLastPathSegment());
+                    final StorageReference mountainsRef=mStorageRef.child("Imagenes").child(uri.getLastPathSegment());
                     imgfoto.setDrawingCacheEnabled(true);
                     imgfoto.buildDrawingCache();
                     Bitmap bitmap = ((BitmapDrawable) imgfoto.getDrawable()).getBitmap();
@@ -147,7 +191,6 @@ public class PerfilActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Uri downloadUri = task.getResult();
                                         referenceUsuarios.child("image_usuario").setValue(downloadUri.toString());
-
                                     } else {
                                         Toast.makeText(PerfilActivity.this, "Error al subir", Toast.LENGTH_SHORT).show();
                                     }
@@ -163,7 +206,6 @@ public class PerfilActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 String mensaje="Foto subida";
                                 Toast.makeText(PerfilActivity.this, mensaje, Toast.LENGTH_SHORT).show();
-
                             }
 
                         }
@@ -171,10 +213,10 @@ public class PerfilActivity extends AppCompatActivity {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                    Toast.makeText(this, "Errror", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+               }
 
-
- */
                 break;
             default:
                 Toast.makeText(this, "No existe la foto", Toast.LENGTH_SHORT).show();
