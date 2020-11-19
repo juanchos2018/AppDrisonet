@@ -54,17 +54,15 @@ public class AdapterMensajes   extends RecyclerView.Adapter<HolderMensaje>{
             holder.getMensaje().setVisibility(View.VISIBLE);
         }
 
-        if (listMensaje.get(position).getFotoPerfil().equals("default_image")){
-            Log.e("fogo","defautl ime");
-           //holder.getFotoMensajePerfil().get(R.drawable.default_profile_image);
-            holder.getFotoMensajePerfil().setImageResource(R.drawable.default_profile_image);
-          //  Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensajePerfil());
-          //  holder.getFotoMensaje().setImageResource(R.drawable.default_profile_image);
-            //holder.getFotoMensaje().get
-        }else{
-          //  Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensaje());
+     //   if (listMensaje.get(position).getFotoPerfil().equals("default_image")){
+     //       Log.e("fogo","defautl ime");
+     //
+     //       holder.getFotoMensajePerfil().setImageResource(R.drawable.default_profile_image);
+     //
+     //   }else{
+     //     //  Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensaje());
              Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensajePerfil());
-        }
+     //   }
 
       //  Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensaje());
       //  Long codigoHora = listMensaje.get(position).getHora();

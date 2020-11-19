@@ -5,33 +5,35 @@
     android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content">
-
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_margin="5dp"
+        android:layout_marginBottom="3dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="50dp">
         <ImageView
             android:src="@drawable/default_profile_image"
-            android:id="@+id/imgperfil3"
-            android:layout_width="50dp"
-            android:layout_height="50dp">
+            android:id="@+id/imgempresa"
+            android:layout_width="60dp"
+            android:layout_height="60dp">
         </ImageView>
     </androidx.cardview.widget.CardView>
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
-            android:id="@+id/txtnombreusu"
-            android:text="Nombre"
-            android:layout_gravity="center"
+            android:id="@+id/txtnombreEmpresa"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Nombre"></TextView>
         <TextView
-            android:id="@+id/txtdatos"
+            android:id="@+id/txtmensaje"
             android:text="Nombre"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -43,7 +45,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:gravity="end"
             android:layout_gravity="end"
@@ -57,10 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </ImageView>
-
         </LinearLayout>
     </LinearLayout>
-
-
-
 </LinearLayout>

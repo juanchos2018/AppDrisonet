@@ -53,7 +53,7 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public    String  key_noticia,key_empresa;
+    public  String  key_noticia,key_empresa;
     private final int frames = 9;
     private int currentAnimationFrame = 0;
     private LottieAnimationView animationView;
@@ -62,7 +62,7 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
     private DatabaseReference referenceNoticia;
     private FirebaseAuth mAuth;
 
-    public String  dni_usuario,nombrecompletos;
+    public String  dni_usuario,nombrecompletos,imgusuario;
     private FirebaseUser user;
 
     public BottonSheetFragment() {
@@ -147,7 +147,7 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
         String fechas = dateFormat.format(date);
-        Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key);
+        Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key,imgusuario,"token","Nuevo");
         referenceNoticia.child(key).setValue(o).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

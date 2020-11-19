@@ -8,6 +8,7 @@ public class Mensaje {
     private String fotoPerfil;
     private String type_mensaje;
     private String correo;
+    private String id_usuario;
 
     public Mensaje() {
     }
@@ -19,12 +20,12 @@ public class Mensaje {
         this.type_mensaje = type_mensaje;
     }
 
-    public Mensaje(String mensaje, String urlFoto, String nombre, String fotoPerfil, String type_mensaje) {
+    public Mensaje(String mensaje, String nombre, String fotoPerfil, String type_mensaje,String id_usuario) {
         this.mensaje = mensaje;
-        this.urlFoto = urlFoto;
         this.nombre = nombre;
         this.fotoPerfil = fotoPerfil;
         this.type_mensaje = type_mensaje;
+        this.id_usuario=id_usuario;
     }
 
     public String getMensaje() {
@@ -65,5 +66,13 @@ public class Mensaje {
 
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
+    }
+
+    public String getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
     }
 }

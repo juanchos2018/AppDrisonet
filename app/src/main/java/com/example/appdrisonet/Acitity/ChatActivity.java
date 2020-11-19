@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.appdrisonet.Adapter.AdapterMensajes;
 import com.example.appdrisonet.Clases.MensajeEnviar;
 import com.example.appdrisonet.Clases.MensajeRecibir;
+import com.example.appdrisonet.Clases.SubChat;
 import com.example.appdrisonet.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -43,12 +44,13 @@ public class ChatActivity extends AppCompatActivity {
     private ImageButton btnEnviarFoto;
 
     private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,referenceSubchat;
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private static final int PHOTO_SEND = 1;
     private static final int PHOTO_PERFIL = 2;
     private String fotoPerfilCadena;
+    String id_empresa,id_usuario,nombre_usuario,image_usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +64,13 @@ public class ChatActivity extends AppCompatActivity {
         btnEnviarFoto = (ImageButton) findViewById(R.id.btnEnviarFoto);
         fotoPerfilCadena = "default_image";
 
+        id_empresa=getIntent().getStringExtra("id_empresa");
+        id_usuario=getIntent().getStringExtra("id_usuario");
+        nombre_usuario=getIntent().getStringExtra("nombre_usuario");
+        image_usuario=getIntent().getStringExtra("image_usuario");
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("chatrooms").child("222").child("chats") ;//Sala de chat (nombre)
+      //  databaseReference = database.getReference("chatrooms").child("222").child("chats") ;//Sala de chat (nombre)
+        databaseReference = database.getReference("Chat").child(id_empresa).child(id_usuario) ;//Sala de chat (nombre)
         storage = FirebaseStorage.getInstance();
 
         adapter = new AdapterMensajes(this);
@@ -73,8 +80,10 @@ public class ChatActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference.push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),nombre.getText().toString(),fotoPerfilCadena,"1", "10:20"));
+
+                databaseReference.push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),nombre_usuario,image_usuario,"1", id_usuario));
                 txtMensaje.setText("");
+                SubChat(id_empresa,id_usuario,nombre_usuario,image_usuario,txtMensaje.getText().toString());
             }
         });
 
@@ -124,7 +133,12 @@ public class ChatActivity extends AppCompatActivity {
         });
 
     }
+    private  void  SubChat(String idempresa,String id_usuario,String nombre_usuario,String img_usuario,String mensaje){
+        referenceSubchat = FirebaseDatabase.getInstance().getReference("SubChat").child(idempresa);
 
+        SubChat obj= new SubChat(idempresa,nombre_usuario,id_usuario,"111111111111111",img_usuario,mensaje);
+        referenceSubchat.child(id_usuario).setValue(obj);
+    }
     private void setScrollbar(){
         rvMensajes.scrollToPosition(adapter.getItemCount()-1);
     }

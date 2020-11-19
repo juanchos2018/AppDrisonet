@@ -6,14 +6,19 @@ public class Solicitud {
     String fecha;
     String dni_usuario;
     String key_solicitud;
-
-
-    public Solicitud(String nombre_usuario, String id_usuario, String fecha, String dni_usuario, String key_solicitud) {
+    String img_usuario;
+    String token;
+    String estado;
+    public Solicitud(String nombre_usuario, String id_usuario, String fecha, String dni_usuario, String key_solicitud,String img_usuario,String token,String estado) {
         this.nombre_usuario = nombre_usuario;
         this.id_usuario = id_usuario;
         this.fecha = fecha;
         this.dni_usuario = dni_usuario;
         this.key_solicitud = key_solicitud;
+        this.id_usuario=img_usuario;
+        this.token=token;
+        this.estado=estado;
+
     }
 
     public String getNombre_usuario() {
@@ -54,5 +59,29 @@ public class Solicitud {
 
     public void setKey_solicitud(String key_solicitud) {
         this.key_solicitud = key_solicitud;
+    }
+
+    public String getImg_usuario() {
+        return img_usuario;
+    }
+
+    public void setImg_usuario(String img_usuario) {
+        this.img_usuario = img_usuario;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

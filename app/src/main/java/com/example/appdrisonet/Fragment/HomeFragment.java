@@ -53,12 +53,12 @@ public class HomeFragment extends Fragment {
     private DatabaseReference referenceUsuarios;
     public FirebaseUser currentUser;
     RecyclerView recycler;
-    private DatabaseReference referenceNoticia;
+    private DatabaseReference referenceNoticia,referenceSubchat;
 
     ArrayList<Noticias> listaNoticias;
     AdapterNoticias adapter;
 
-    String dni,Completos;
+    String dni,Completos,urlfoto,nombre_usuario,img_usuario;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -100,11 +100,11 @@ public class HomeFragment extends Fragment {
         referenceUsuarios.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
-                String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
+               urlfoto = dataSnapshot.child("image_usuario").getValue().toString();
+                nombre_usuario= dataSnapshot.child("nombre_usuario").getValue().toString();
                 String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
                 dni = dataSnapshot.child("dni_usuario").getValue().toString();
-                Completos=nombre+" "+apellido;
+                Completos=nombre_usuario+" "+apellido;
             }
 
             @Override
@@ -153,6 +153,7 @@ public class HomeFragment extends Fragment {
                             final String rutafoto=dataSnapshot.child("img_noticia").getValue().toString();
                             final String rutausuario=dataSnapshot.child("img_usuario").getValue().toString();
                             final String key_noticia=dataSnapshot.child("key_noticia").getValue().toString();
+                            final String id_empresa=dataSnapshot.child("key_usuario").getValue().toString();
 
                             items.tvnombre_usu.setText(usuario);
                             items.tvdescripcionnoticia.setText(descripcion);
@@ -180,6 +181,7 @@ public class HomeFragment extends Fragment {
                                     bottomSheetDialog.key_noticia=key_noticia;
                                     bottomSheetDialog.dni_usuario=dni;
                                     bottomSheetDialog.nombrecompletos=Completos;
+                                    bottomSheetDialog.imgusuario=urlfoto;
                                     bottomSheetDialog.show(getChildFragmentManager(), "Bottom Sheet Dialog Fragment");                                }
                             });
                             items.tvdireccion.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +193,16 @@ public class HomeFragment extends Fragment {
                             items.imgchat.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    startActivity(new Intent(getContext(), ChatActivity.class));
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("id_empresa",id_empresa);
+                                    bundle.putString("id_usuario",user_id);
+                                    bundle.putString("nombre_usuario",Completos);
+                                    bundle.putString("image_usuario",urlfoto);
+                                    Intent intent= new Intent(getContext(), ChatActivity.class);
+                                    intent.putExtras(bundle);
+                                    startActivity(intent);
+
+
                                 }
                             });
                         }
@@ -216,6 +227,13 @@ public class HomeFragment extends Fragment {
         };
         recycler.setAdapter(adapter);
         adapter.startListening();
+    }
+    private  void  SubChat(String idempresa,String id_usuario,String nombre_usuario,String img_usuario){
+        referenceSubchat = FirebaseDatabase.getInstance().getReference("SubChat").child(idempresa);
+        referenceSubchat.child("id_usuario").setValue(id_usuario);
+        referenceSubchat.child("nombre_usuario").setValue(nombre_usuario);
+        referenceSubchat.child("image_usuario").setValue(img_usuario);
+        referenceSubchat.child("fecha").setValue("12/12/12");
     }
     public  static class Items extends RecyclerView.ViewHolder{
         TextView tvnombre_usu,tvdescripcionnoticia,tvdireccion;
