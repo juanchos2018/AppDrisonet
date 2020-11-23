@@ -16,11 +16,12 @@ public class Papeleta {
     private String serie_papeleta;
     public Papeleta() {
     }
-    public Papeleta(String estado_deuda, String fecha, String importe, String propietario) {
+    public Papeleta(String estado_deuda, String fecha, String importe, String propietario,String conductor) {
         this.estado_deuda = estado_deuda;
         this.fecha = fecha;
         this.importe = importe;
         this.propietario = propietario;
+        this.conductor=conductor;
     }
 
     public Papeleta(String conductor, String estado_deuda, String fecha, String importe, String infraccion, String propietario, String pt_cod_papeleta, String pt_dni_conductor, String pt_dni_propietario, String pt_numero_licencia, String serie_papeleta) {

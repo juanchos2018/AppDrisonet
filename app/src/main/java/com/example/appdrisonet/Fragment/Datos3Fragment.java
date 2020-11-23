@@ -173,7 +173,7 @@ public class Datos3Fragment extends Fragment {
             reference2=FirebaseDatabase.getInstance().getReference("MisPapeletas").child(id);
             String key = reference2.push().getKey();
         //    reference2.child(user_id).child("iamge_usuario").setValue(rutafoto);
-            Papeleta o =new Papeleta(item.getEstado_deuda(),item.getFecha(),item.getImporte(),item.getPropietario());
+            Papeleta o =new Papeleta(item.getEstado_deuda(),item.getFecha(),item.getImporte(),item.getPropietario(),item.getConductor());
             reference2.child(key).setValue(o);
 
         }

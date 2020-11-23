@@ -15,7 +15,7 @@ public class Solicitud {
         this.fecha = fecha;
         this.dni_usuario = dni_usuario;
         this.key_solicitud = key_solicitud;
-        this.id_usuario=img_usuario;
+        this.img_usuario=img_usuario;
         this.token=token;
         this.estado=estado;
 

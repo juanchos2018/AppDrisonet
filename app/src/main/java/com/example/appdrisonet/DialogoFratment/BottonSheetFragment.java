@@ -147,7 +147,8 @@ public class BottonSheetFragment extends BottomSheetDialogFragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
         String fechas = dateFormat.format(date);
-        Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key,imgusuario,"token","Nuevo");
+       // Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key,imgusuario,"token","Nuevo");
+        Solicitud o =new Solicitud(nombrecompletos,key_usu,fechas,dni_usuario,key,imgusuario,"yoken","Nuevo");
         referenceNoticia.child(key).setValue(o).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
