@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.appdrisonet.Acitity.PerfilActivity;
 import com.example.appdrisonet.Acitity.RegistroActivity;
+import com.example.appdrisonet.Clases.Papeleta;
 import com.example.appdrisonet.LoginActivity;
 import com.example.appdrisonet.PrincipalActivity;
 import com.example.appdrisonet.R;
@@ -27,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 /**
@@ -54,8 +56,14 @@ public class PerfilFragment extends Fragment {
     private TextView idverperfil;
     private TextView signup;
     private DatabaseReference referenceUsuarios;
+
+    int cantidapepletas;
+    int cantidapendietes;
+    private DatabaseReference referecepapeletas;
     String user_id;
     private FirebaseUser user;
+    TextView tvpapeletas;
+    TextView tvpendientes;
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -97,6 +105,8 @@ public class PerfilFragment extends Fragment {
         idverperfil = vista.findViewById(R.id.idverperfil);
         imgperfil2=(ImageView)vista.findViewById(R.id.imgperfil2);
         signup = vista.findViewById(R.id.signup);
+        tvpapeletas=(TextView)vista.findViewById(R.id.idcantidadpapeletas);
+        tvpendientes=(TextView)vista.findViewById(R.id.idpapeletaspendientes);
 
         carperfil=(CardView)vista.findViewById(R.id.carperfil);
         tvnombre=(TextView)vista.findViewById(R.id.tvnombre);
@@ -163,6 +173,38 @@ public class PerfilFragment extends Fragment {
         return vista;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        cantidapendietes=0;
+        cantidapepletas=0;
+        referecepapeletas=FirebaseDatabase.getInstance().getReference("MisPapeletas").child(user_id);
+        Query qp =referecepapeletas;
+        qp.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()){
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Papeleta obj = postSnapshot.getValue(Papeleta.class);
+                        if (obj.getEstado_deuda().equals("PENDIENTE")){
+                            cantidapendietes++;
+                        }
+                        cantidapepletas++;
+                    }
+                    tvpapeletas.setText(""+cantidapepletas);
+                    tvpendientes.setText(""+cantidapendietes);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
     private void Perfil() {
 

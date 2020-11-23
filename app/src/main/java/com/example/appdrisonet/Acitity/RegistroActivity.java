@@ -51,7 +51,7 @@ public class RegistroActivity extends AppCompatActivity implements DatosFragment
 
                 vista++;
                 if (!campoLLenoFragmentDatos){
-                    Toast.makeText(RegistroActivity.this, "Campo vacio", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(RegistroActivity.this, "Campo vacio", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(RegistroActivity.this, "campo lleno", Toast.LENGTH_SHORT).show();

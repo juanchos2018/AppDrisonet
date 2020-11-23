@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.appdrisonet.DialogoFratment.BottonSheetFragment;
 import com.example.appdrisonet.Fragment.Datos2Fragment;
+import com.example.appdrisonet.Fragment.Datos3Fragment;
 import com.example.appdrisonet.Fragment.DatosFragment;
 import com.example.appdrisonet.Fragment.MtcFragment;
 import com.example.appdrisonet.Fragment.PageFragment;
@@ -29,7 +30,7 @@ public class PagerAdapter extends FragmentPagerAdapter implements DatosFragment.
                 String nombre ="juan carlos pag";
                 return Datos2Fragment.newInstance(nombre);
             case 2:
-                return BottonSheetFragment.newInstance();
+                return Datos3Fragment.newInstance();
             default:
                 return null;
         }

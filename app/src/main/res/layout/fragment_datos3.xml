@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     android:layout_height="match_parent"
     tools:context=".Fragment.Datos3Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Correo" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/tvcorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </EditText>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña" />
+
+    <EditText
+        android:id="@+id/tvpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </EditText>
+    <Button
+        android:id="@+id/btnregistrarUsuario"
+        android:text="Registrar"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+</LinearLayout>

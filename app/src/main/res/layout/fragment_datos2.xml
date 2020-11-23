@@ -8,42 +8,60 @@
     tools:context=".Fragment.Datos2Fragment">
 
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/tvnombreUsu"
+        android:textSize="20sp"
         android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
     </TextView>
     <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Correo" />
-
-    <EditText
-        android:id="@+id/tvcorreo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </EditText>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contraseña" />
-
-    <EditText
-        android:id="@+id/tvpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </EditText>
-    <Button
-        android:id="@+id/btnregistrarUsuario"
-        android:text="Registrar"
+        android:id="@+id/xttddni"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+    </TextView>
+    <ImageView
+        android:id="@+id/ivCaptcha2"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+    <ImageButton
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:id="@+id/btnLoadImage"
+        android:src="@drawable/ic_recarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ImageButton>
+    <EditText
+        android:id="@+id/txtCodigo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese el texto de la imagen."
+        android:inputType="textPersonName" />
 
-    </Button>
+    <Button
+        android:id="@+id/btnConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerpapeletas"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
 </LinearLayout>

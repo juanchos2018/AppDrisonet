@@ -20,7 +20,10 @@
         android:roundIcon="@mipmap/ic_logop_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Acitity.ChatActivity"></activity>
+        <activity android:name=".Acitity.PruebaActivity">
+
+        </activity>
+        <activity android:name=".Acitity.ChatActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -43,6 +46,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+          <!-- aqui el inciio -->
         </activity>
         <activity android:name=".MainActivity" />
 
