@@ -9,6 +9,9 @@ public class SubChat {
     String image_usuario;
     String mensaje;
 
+    public  SubChat(){
+
+    }
     public SubChat(String id_empresa, String nombre_usuario, String id_usuario, String fecha,String image_usuario,String mensaje) {
         this.id_empresa = id_empresa;
         this.nombre_usuario = nombre_usuario;

@@ -9,24 +9,28 @@ public class Mensaje {
     private String type_mensaje;
     private String correo;
     private String id_usuario;
+    private String hora;
 
     public Mensaje() {
     }
-
-    public Mensaje(String mensaje, String nombre, String fotoPerfil, String type_mensaje) {
-        this.mensaje = mensaje;
-        this.nombre = nombre;
-        this.fotoPerfil = fotoPerfil;
-        this.type_mensaje = type_mensaje;
-    }
-
-    public Mensaje(String mensaje, String nombre, String fotoPerfil, String type_mensaje,String id_usuario) {
+    public Mensaje(String mensaje, String nombre, String fotoPerfil, String type_mensaje,String id_usuario,String hora) {
         this.mensaje = mensaje;
         this.nombre = nombre;
         this.fotoPerfil = fotoPerfil;
         this.type_mensaje = type_mensaje;
         this.id_usuario=id_usuario;
+        this.hora=hora;
+
     }
+    public Mensaje(String mensaje, String nombre, String fotoPerfil, String type_mensaje,String hora) {
+        this.mensaje = mensaje;
+        this.nombre = nombre;
+        this.fotoPerfil = fotoPerfil;
+        this.type_mensaje = type_mensaje;
+        this.hora=hora;
+    }
+
+
 
     public String getMensaje() {
         return mensaje;
@@ -74,5 +78,13 @@ public class Mensaje {
 
     public void setId_usuario(String id_usuario) {
         this.id_usuario = id_usuario;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }

@@ -35,7 +35,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
 
@@ -118,7 +120,13 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onStart() {
-        super.onStart();/*
+        super.onStart();
+
+        // formattedDate have current date/time
+
+        /*
+
+
         Query query=referenceNoticia;
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -197,7 +205,9 @@ public class HomeFragment extends Fragment {
                                     bundle.putString("id_empresa",id_empresa);
                                     bundle.putString("id_usuario",user_id);
                                     bundle.putString("nombre_usuario",Completos);
-                                    bundle.putString("image_usuario",urlfoto);
+                                    bundle.putString("nombre_empresa",usuario);
+                                    bundle.putString("image_usuario",urlfoto);//rutausuario
+                                    bundle.putString("image_empresa",rutausuario);//rutausuario
                                     Intent intent= new Intent(getContext(), ChatActivity.class);
                                     intent.putExtras(bundle);
                                     startActivity(intent);

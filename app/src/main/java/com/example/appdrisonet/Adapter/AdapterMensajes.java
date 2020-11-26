@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,15 +45,18 @@ public class AdapterMensajes   extends RecyclerView.Adapter<HolderMensaje>{
     public void onBindViewHolder(@NonNull HolderMensaje holder, int position) {
         holder.getNombre().setText(listMensaje.get(position).getNombre());
         holder.getMensaje().setText(listMensaje.get(position).getMensaje());
+        holder.getHora().setText(listMensaje.get(position).getHora());
+
+
     //    holder.ge
-        if(listMensaje.get(position).getType_mensaje().equals("2")){
-            holder.getFotoMensaje().setVisibility(View.VISIBLE);
-            holder.getMensaje().setVisibility(View.VISIBLE);
-            Glide.with(c).load(listMensaje.get(position).getUrlFoto()).into(holder.getFotoMensaje());
-        }else if(listMensaje.get(position).getType_mensaje().equals("1")){
-            holder.getFotoMensaje().setVisibility(View.GONE);
-            holder.getMensaje().setVisibility(View.VISIBLE);
-        }
+      ///  if(listMensaje.get(position).getType_mensaje().equals("2")){
+      ///      holder.getFotoMensaje().setVisibility(View.VISIBLE);
+      ///      holder.getMensaje().setVisibility(View.VISIBLE);
+      ///      Glide.with(c).load(listMensaje.get(position).getUrlFoto()).into(holder.getFotoMensaje());
+      ///  }else if(listMensaje.get(position).getType_mensaje().equals("1")){
+      ///      holder.getFotoMensaje().setVisibility(View.GONE);
+      ///      holder.getMensaje().setVisibility(View.VISIBLE);
+      ///  }
 
      //   if (listMensaje.get(position).getFotoPerfil().equals("default_image")){
      //       Log.e("fogo","defautl ime");

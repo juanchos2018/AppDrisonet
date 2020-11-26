@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -34,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private DatabaseReference userDatabaseReference;
+    private DatabaseReference userDatabaseReference,reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +64,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String correo = etcorreo.getText().toString();
                 String clave = etpassword.getText().toString();
-
                 //startActivity(new Intent(LoginActivity.this,PrincipalActivity.class));
-                    ingresar(correo,clave);
+                 ingresar(correo,clave);
 
             }
         });
@@ -103,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                 }
             });
-
         }
     }
     private void checkVerifiedEmail() {
@@ -118,12 +118,21 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             userDatabaseReference.child(UID).child("active_now").setValue("true");
+            GuardarToken(UID);
             startActivity(intent);
             finish();
         } else {
             Toast.makeText(this, "Correo no verificado", Toast.LENGTH_SHORT).show();
             mAuth.signOut();
         }
+    }
+    public void GuardarToken(final String id_usuario){
+        SharedPreferences preferences= getSharedPreferences("mitoken", Context.MODE_PRIVATE);
+        String token=preferences.getString("token","no existe we");
+        userDatabaseReference.child(id_usuario).child("token").setValue(token);
+       // reference = FirebaseDatabase.getInstance().getReference("token").child(id_usuario);
+      //  reference.child("token").setValue(token);
+
     }
 
     private void ver(){

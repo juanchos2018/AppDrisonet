@@ -151,7 +151,7 @@ public class Datos2Fragment extends Fragment {
         txtCodigo = vista.findViewById(R.id.txtCodigo2);
         recarga=(ImageButton)vista.findViewById(R.id.btnLoadImage);
         btnconsuta=(Button)vista.findViewById(R.id.btnConsultar);
-        btnconsuta.setOnClickListener(new View.OnClickListener() {
+        btnconsuta.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 consultar1();
@@ -177,7 +177,7 @@ public class Datos2Fragment extends Fragment {
                 apellidousuario=apellido;
                 dni=d;
                 txtdni.setText(d);
-               }
+             }
           //  tvnombreusu.setText(mName);
         }
 
