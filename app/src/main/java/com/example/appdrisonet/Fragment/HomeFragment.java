@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +40,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
@@ -55,6 +59,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference referenceUsuarios;
     public FirebaseUser currentUser;
     RecyclerView recycler;
+    Button btnhora;
     private DatabaseReference referenceNoticia,referenceSubchat;
 
     ArrayList<Noticias> listaNoticias;
@@ -94,7 +99,42 @@ public class HomeFragment extends Fragment {
 
         referenceNoticia= FirebaseDatabase.getInstance().getReference("Publicaciones");
         listaNoticias = new ArrayList<>();
+        btnhora=(Button)vista.findViewById(R.id.btnhora);
+        btnhora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
 
+                    //Fcha Actual
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+                    String formattedDate = df.format(c.getTime());
+
+                    //Lo primero que tienes que hacer es establecer el formato que tiene tu fecha para que puedas obtener un objeto de tipo Date el cual es el que se utiliza para obtener la diferencia.
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss", Locale.getDefault());
+
+                    //Parceas tus fechas en string a variables de tipo date se agrega un try catch porque si el formato declarado anteriormente no es igual a tu fecha obtendrás una excepción
+                    Date dateStart = dateFormat.parse(df.format(c.getTime()));
+                   // Date dateStart =df.format(c.getTime());
+
+                  //  Date dateEnd = dateFormat.parse("2018/09/14 01:10:20");
+                    Date dateEnd = dateFormat.parse("28/11/2020 12:10:20");
+                    //obtienes la diferencia de las fechas
+                    long difference = Math.abs(dateEnd.getMinutes() - dateStart.getMinutes());
+
+                    //obtienes la diferencia en horas ya que la diferencia anterior esta en milisegundos
+                    difference= difference / (60 * 60 * 1000);
+                    Log.e("Difference: " ,  Long.toString(difference));
+
+
+                    Toast.makeText(getContext(), Long.toString(difference), Toast.LENGTH_SHORT).show();
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         user_id =  mAuth.getCurrentUser().getUid();

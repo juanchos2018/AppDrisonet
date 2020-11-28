@@ -52,7 +52,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:layout_gravity="end"
-                android:id="@+id/imgDetalle"
+                android:id="@+id/imgDetalle2"
                 android:layout_marginRight="5dp"
                 android:src="@drawable/tolbarpuntos"
                 android:layout_width="wrap_content"

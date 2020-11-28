@@ -139,10 +139,23 @@ public class MensajeFragment extends Fragment {
                         if (dataSnapshot.exists()){
                             final String usuario=dataSnapshot.child("nombre_usuario").getValue().toString();
                             final String mensaje=dataSnapshot.child("mensaje").getValue().toString();
-
+                            final String img_empresa=dataSnapshot.child("image_usuario").getValue().toString();
                             final String id_empresa=dataSnapshot.child("id_empresa").getValue().toString();
                             items.tvnombre_usu.setText(usuario);
                             items.tvmenaje.setText(mensaje);
+
+
+                            if (img_empresa.equals("default_image")){
+                                items.imgperfil.setImageResource(R.drawable.ic_launcher_background);
+                            }else {
+                                Glide.with(getContext().getApplicationContext())
+                                        .load(img_empresa)
+                                        .placeholder(R.drawable.ic_launcher_background)
+                                        .fitCenter()
+                                        .centerCrop()
+                                        .into(items.imgperfil);
+                            }
+
                             items.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

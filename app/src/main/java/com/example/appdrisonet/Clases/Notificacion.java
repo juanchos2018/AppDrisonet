@@ -9,10 +9,11 @@ public class Notificacion {
     String mensaje;
     String detalle;
     String  ruta_documento;
+    String estado;
     public Notificacion(){
 
     }
-    public Notificacion(String id_usuario, String nombre_empresa, String image_empresa, String fecha, String mensaje, String detalle, String ruta_documento) {
+    public Notificacion(String id_usuario, String nombre_empresa, String image_empresa, String fecha, String mensaje, String detalle, String ruta_documento,String estado) {
         this.id_usuario = id_usuario;
         this.nombre_empresa = nombre_empresa;
         this.image_empresa = image_empresa;
@@ -20,6 +21,7 @@ public class Notificacion {
         this.mensaje = mensaje;
         this.detalle = detalle;
         this.ruta_documento = ruta_documento;
+        this.estado=estado;
     }
 
     public String getId_usuario() {
@@ -76,5 +78,13 @@ public class Notificacion {
 
     public void setRuta_documento(String ruta_documento) {
         this.ruta_documento = ruta_documento;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
