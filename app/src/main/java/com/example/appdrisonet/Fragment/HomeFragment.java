@@ -1,11 +1,16 @@
 package com.example.appdrisonet.Fragment;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -255,6 +260,20 @@ public class HomeFragment extends Fragment {
 
                                 }
                             });
+
+
+                            items.imgphone.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:937037666"));
+                                    /*if (ActivityCompat.checkSelfPermission(HomeFragment.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED);
+
+                                    return ;*/
+                                    startActivity(i);
+                                }
+                            });
+
+
                         }
                     }
                     @Override

@@ -105,121 +105,132 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idgrip"
+        android:id="@+id/idgripmtcconteiner"
         android:padding="5dp"
-        android:columnCount="3"
-        android:rowCount="2"
-        android:layout_marginBottom="15dp">
+        android:columnCount="1"
+        android:rowCount="2">
 
-        <TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardmtc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Licencia"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idnumlicencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="numero de licencia"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vigencia"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idvigencialicencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="vigencia de la licencia"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clase y Categoria"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idclasecategoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="clase y cat"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estado de la licencia"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idestadolicencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="estado"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:foreground="?selectableItemBackground"
+            >
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idgrip"
+                android:padding="5dp"
+                android:columnCount="3"
+                android:rowCount="2"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Licencia"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idnumlicencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="K-74142924"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vigencia"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idvigencialicencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="04/10/2020"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clase y Categoria"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idclasecategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AIIa"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado de la licencia"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idestadolicencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIGENTE"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
     </GridLayout>
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/colornegro"
-        android:layout_height="1dp">
-
-    </View>
 
     <TextView
         android:layout_width="wrap_content"
@@ -234,48 +245,60 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idgrippuntos"
+        android:id="@+id/idgrippuntosconteiner"
         android:padding="5dp"
-        android:columnCount="3"
-        android:rowCount="2"
-        android:layout_marginBottom="15dp">
+        android:columnCount="1"
+        android:rowCount="2">
 
-        <TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardpuntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Puntos firmes acumulados"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idpuntoslicencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="puntos"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:foreground="?selectableItemBackground"
+            >
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idgrippuntos"
+                android:padding="5dp"
+                android:columnCount="3"
+                android:rowCount="2"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Puntos firmes acumulados"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idpuntoslicencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
     </GridLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/colornegro"
-        android:layout_height="1dp">
-
-    </View>
 
     <TextView
         android:layout_width="wrap_content"
@@ -287,63 +310,86 @@
         android:textStyle="bold"
         android:textColor="@color/colornegro"/>
 
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idgripmunicipalidad"
+        android:id="@+id/idgripmunicipalidadconteiner"
         android:padding="5dp"
-        android:columnCount="3"
+        android:columnCount="1"
         android:rowCount="2">
 
-        <TextView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardmunicipalidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cantidad de papeletas"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idcantidadpapeletas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="cantidad"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Papeletas pendientes"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  : "
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
-        <TextView
-            android:id="@+id/idpapeletaspendientes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pendientes"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/colornegro"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:foreground="?selectableItemBackground"
+            >
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idgripmunicipalidad"
+                android:padding="5dp"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad de papeletas"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idcantidadpapeletas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cantidad"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Papeletas pendientes"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  : "
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+                <TextView
+                    android:id="@+id/idpapeletaspendientes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pendientes"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colornegro"/>
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
     </GridLayout>
 
 </LinearLayout>

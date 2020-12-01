@@ -12,6 +12,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -20,9 +21,8 @@
         android:roundIcon="@mipmap/ic_logop_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Acitity.PruebaActivity">
-
-        </activity>
+        <activity android:name=".Acitity.Ranking"></activity>
+        <activity android:name=".Acitity.PruebaActivity"></activity>
         <activity android:name=".Acitity.ChatActivity" />
 
         <meta-data
@@ -46,7 +46,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-          <!-- aqui el inciio -->
+            <!-- aqui el inciio -->
         </activity>
         <activity android:name=".MainActivity" />
 

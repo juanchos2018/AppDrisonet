@@ -130,8 +130,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences preferences= getSharedPreferences("mitoken", Context.MODE_PRIVATE);
         String token=preferences.getString("token","no existe we");
         userDatabaseReference.child(id_usuario).child("token").setValue(token);
-       // reference = FirebaseDatabase.getInstance().getReference("token").child(id_usuario);
-      //  reference.child("token").setValue(token);
+        // reference = FirebaseDatabase.getInstance().getReference("token").child(id_usuario);
+        //  reference.child("token").setValue(token);
 
     }
 
