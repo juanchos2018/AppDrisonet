@@ -150,7 +150,7 @@ public class PerfilFragment extends Fragment {
                 String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
                 String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
                 String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
-                String dni = dataSnapshot.child("dni").getValue().toString();
+                String dni = dataSnapshot.child("dni_usuario").getValue().toString();
                 tvnumerolicencia.setText("K-"+dni);
                 tvnombre.setText(nombre+ " "+apellido);
                 if (img_usuario.equals("default_image")){

@@ -7,7 +7,6 @@
     android:orientation="vertical"
     >
     <androidx.cardview.widget.CardView
-        android:layout_marginBottom="15dp"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,11 +82,12 @@
                 <TextView
                     android:id="@+id/tvdescripcion"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:textSize="15sp"
                     android:text="Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </TextView>
+                    android:layout_height="wrap_content"/>
+
                 <ImageView
                     android:id="@+id/imgnoticia"
                     android:layout_marginTop="10dp"
@@ -107,25 +107,19 @@
                 <ImageView
                     android:id="@+id/imgphone"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_phone"
-                    android:background="@drawable/bg_llamada"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp"
+                    android:background="@drawable/phonecall"
                     android:layout_marginBottom="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </ImageView>
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
                 <ImageView
                     android:id="@+id/imgchat"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/ic_flecha"
-                    android:background="@drawable/bg_mensajes"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp"
+                    android:background="@drawable/messengercircle"
                     android:layout_marginBottom="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </ImageView>
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
             </LinearLayout>
 
 

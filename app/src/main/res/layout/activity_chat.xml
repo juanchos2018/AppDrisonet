@@ -17,21 +17,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar1"
+            android:id="@+id/toolbarchat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
-            app:title="Atras"
-            app:titleTextAppearance="@style/ToolbarTextAppearance"
-            app:titleTextColor="@android:color/white" />
+            app:titleTextAppearance="@style/ToolbarTextAppearance" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="usuario"
+                android:id="@+id/usuariochatid"
+                android:paddingLeft="5dp"
+                android:layout_marginRight="25dp"
+                android:textStyle="bold"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/blanco">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageusuarioid"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/default_profile_image"
+            />
+
 
 
 

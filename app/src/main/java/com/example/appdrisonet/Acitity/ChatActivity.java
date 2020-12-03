@@ -1,6 +1,7 @@
 package com.example.appdrisonet.Acitity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.appdrisonet.Adapter.AdapterMensajes;
 import com.example.appdrisonet.Clases.MensajeEnviar;
 import com.example.appdrisonet.Clases.MensajeRecibir;
@@ -34,8 +36,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ChatActivity extends AppCompatActivity {
 
+    Toolbar toolbarchat;
 
     private FirebaseAuth mAuth;
     private FirebaseUser user;
@@ -43,6 +48,9 @@ public class ChatActivity extends AppCompatActivity {
 
  //   private CircleImageView fotoPerfil;
     private TextView nombre;
+    private CircleImageView imageusuarioid;
+    private TextView usuariochatid;
+
     private RecyclerView rvMensajes;
     private EditText txtMensaje;
     private Button btnEnviar;
@@ -64,9 +72,19 @@ public class ChatActivity extends AppCompatActivity {
 
         //fotoPerfil = (CircleImageView) findViewById(R.id.fotoPerfil);
       //  nombre = (TextView) findViewById(R.id.nombre);
+        toolbarchat = findViewById(R.id.toolbarchat);
         rvMensajes = (RecyclerView) findViewById(R.id.rvMensajes);
         txtMensaje = (EditText) findViewById(R.id.txtMensaje);
+        usuariochatid = findViewById(R.id.usuariochatid);
+        imageusuarioid = findViewById(R.id.imageusuarioid);
         btnEnviar = (Button) findViewById(R.id.btnEnviar);
+
+        toolbarchat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     //    btnEnviarFoto = (ImageButton) findViewById(R.id.btnEnviarFoto);
        // fotoPerfilCadena = "default_image";nombre_empresa
 
@@ -81,6 +99,22 @@ public class ChatActivity extends AppCompatActivity {
       //  databaseReference = database.getReference("chatrooms").child("222").child("chats") ;//Sala de chat (nombre)
         databaseReference = database.getReference("Chat").child(id_empresa).child(id_usuario) ;//Sala de chat (nombre)
         storage = FirebaseStorage.getInstance();
+
+        usuariochatid.setText(nombre_empresa);
+
+        if (image_usuario.equals("default_image")){
+            imageusuarioid.setImageResource(R.drawable.default_profile_image);
+
+        }
+        else{
+            Glide.with(getApplicationContext())
+                    .load(image_usuario)
+                    .placeholder(R.drawable.default_profile_image)
+                    .fitCenter()
+                    .centerCrop()
+                    .error(R.drawable.default_profile_image)
+                    .into(imageusuarioid);
+        }
 
         adapter = new AdapterMensajes(this);
         LinearLayoutManager l = new LinearLayoutManager(this);
