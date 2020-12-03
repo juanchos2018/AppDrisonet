@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.appdrisonet.Acitity.ChatActivity;
+import com.example.appdrisonet.Acitity.DetalleNotificacionActivity;
 import com.example.appdrisonet.Acitity.MapaActivity;
 import com.example.appdrisonet.Clases.Noticias;
 import com.example.appdrisonet.Clases.Notificacion;
@@ -136,6 +138,15 @@ public class NotificacionesFragment extends Fragment {
                                     }
                                 }
                             });
+                            items.carnoti.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                 //   DetalleNotificacionActivity
+                                   Intent intent = new Intent(getContext(),DetalleNotificacionActivity.class);
+
+                                   startActivity(intent);
+                                }
+                            });
                         }
                     }
                     @Override
@@ -161,6 +172,7 @@ public class NotificacionesFragment extends Fragment {
         TextView tvnombre_usu,tvdescripcionnoticia,tvdireccion;
         ImageView imgnoticia,imgperfil,imgDetalle,imgphone,imgchat;
         String key_empresa,ke_publicacion;
+        CardView carnoti;
 
         public Items(@NonNull View itemView) {
             super(itemView);
@@ -168,6 +180,7 @@ public class NotificacionesFragment extends Fragment {
             tvdescripcionnoticia=(TextView)itemView.findViewById(R.id.txtmensaje);
             imgperfil=(ImageView)itemView.findViewById(R.id.imgempresa);
             imgDetalle=(ImageView)itemView.findViewById(R.id.imgDetalle2);
+            carnoti=(CardView)itemView.findViewById(R.id.idcarnoti);
 
         }
     }

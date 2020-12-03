@@ -63,7 +63,8 @@ public class PerfilFragment extends Fragment {
     String user_id;
     private FirebaseUser user;
     TextView tvpapeletas;
-    TextView tvpendientes;
+    TextView tvpendientes,tvnumerolicencia;
+
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -107,6 +108,7 @@ public class PerfilFragment extends Fragment {
         signup = vista.findViewById(R.id.signup);
         tvpapeletas=(TextView)vista.findViewById(R.id.idcantidadpapeletas);
         tvpendientes=(TextView)vista.findViewById(R.id.idpapeletaspendientes);
+        tvnumerolicencia=(TextView)vista.findViewById(R.id.idnumlicencia);
 
         carperfil=(CardView)vista.findViewById(R.id.carperfil);
         tvnombre=(TextView)vista.findViewById(R.id.tvnombre);
@@ -148,7 +150,8 @@ public class PerfilFragment extends Fragment {
                 String img_usuario = dataSnapshot.child("image_usuario").getValue().toString();
                 String nombre = dataSnapshot.child("nombre_usuario").getValue().toString();
                 String apellido = dataSnapshot.child("apellido_usuario").getValue().toString();
-
+                String dni = dataSnapshot.child("dni").getValue().toString();
+                tvnumerolicencia.setText("K-"+dni);
                 tvnombre.setText(nombre+ " "+apellido);
                 if (img_usuario.equals("default_image")){
                     imgperfil2.setImageResource(R.drawable.default_profile_image);

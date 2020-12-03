@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -207,7 +208,7 @@ public class HomeFragment extends Fragment {
                             final String rutausuario=dataSnapshot.child("img_usuario").getValue().toString();
                             final String key_noticia=dataSnapshot.child("key_noticia").getValue().toString();
                             final String id_empresa=dataSnapshot.child("key_usuario").getValue().toString();
-
+                            final String telefono=dataSnapshot.child("telefono").getValue().toString();
                             items.tvnombre_usu.setText(usuario);
                             items.tvdescripcionnoticia.setText(descripcion);
 
@@ -256,20 +257,14 @@ public class HomeFragment extends Fragment {
                                     Intent intent= new Intent(getContext(), ChatActivity.class);
                                     intent.putExtras(bundle);
                                     startActivity(intent);
-
-
                                 }
                             });
-
-
                             items.imgphone.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:937037666"));
-                                    /*if (ActivityCompat.checkSelfPermission(HomeFragment.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED);
+                                    //String telefono="970780836";
+                                    Telefono(telefono);
 
-                                    return ;*/
-                                    startActivity(i);
                                 }
                             });
 
@@ -296,6 +291,23 @@ public class HomeFragment extends Fragment {
         };
         recycler.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    private void Telefono(String numero) {
+        try {
+            if (TextUtils.isEmpty(numero)){
+                Toast.makeText(getContext(), "no existe numero de telefono", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+numero));
+                startActivity(intent);
+            }
+
+        }catch (Exception ex){
+            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
     }
     private  void  SubChat(String idempresa,String id_usuario,String nombre_usuario,String img_usuario){
         referenceSubchat = FirebaseDatabase.getInstance().getReference("SubChat").child(idempresa);

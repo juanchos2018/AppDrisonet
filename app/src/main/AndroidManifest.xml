@@ -21,8 +21,9 @@
         android:roundIcon="@mipmap/ic_logop_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Acitity.Ranking"></activity>
-        <activity android:name=".Acitity.PruebaActivity"></activity>
+        <activity android:name=".Acitity.DetalleNotificacionActivity"></activity>
+        <activity android:name=".Acitity.Ranking" />
+        <activity android:name=".Acitity.PruebaActivity" />
         <activity android:name=".Acitity.ChatActivity" />
 
         <meta-data
