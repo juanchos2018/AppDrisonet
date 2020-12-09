@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".PrincipalActivity">
 
-
     <com.google.android.material.appbar.AppBarLayout
        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
@@ -29,8 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:background="@color/blanco"
@@ -42,9 +39,6 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-
-
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayout"
                     android:layout_width="match_parent"
@@ -53,7 +47,6 @@
                     app:tabTextColor="@color/colorAccent"
                     app:tabIndicatorHeight="1.5dp"
                     app:tabMode="fixed"
-
                     app:tabIndicatorColor="@color/colorAccent">
 
                 </com.google.android.material.tabs.TabLayout>
@@ -79,7 +72,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:gravity="center">

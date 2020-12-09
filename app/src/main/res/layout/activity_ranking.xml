@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Acitity.Ranking">
@@ -27,8 +26,7 @@
                 android:id="@+id/tvtitulo"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="RANKING DE PAPELETAS"
-                android:layout_marginLeft="15dp"
+                android:text="@string/rankingdepapeletas"
                 android:textSize="25sp"
                 android:textColor="@color/blue_link"
                 android:textStyle="bold"
@@ -41,49 +39,28 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarLayoutranking"
+    <FrameLayout
+        android:id="@+id/fragmentid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blanco"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-        >
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/botomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarranking"
-            android:background="@color/blanco"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="15dp">
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabLayoutranking"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:tabGravity="fill"
-                    app:tabTextColor="@color/colorAccent"
-                    app:tabIndicatorHeight="1.5dp"
-                    app:tabMode="fixed"
-                    app:tabIndicatorColor="@color/colorAccent">
-
-                </com.google.android.material.tabs.TabLayout>
-            </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPagerranking"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appbarLayoutranking"
-        app:layout_behavior="com.google.adnroid.material-appbar.AppBarLayout$ScrollingViewBehavior">
+        android:layout_height="75dp"
+        android:id="@+id/botomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu_ranking"
+        />
 
-    </androidx.viewpager.widget.ViewPager>
 
-</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

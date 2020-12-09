@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/rankingpuntos"
+        android:title="Puntos"
+        android:icon="@drawable/ic_ranking_puntos"/>
+    <item
+        android:id="@+id/rankingtotal"
+        android:icon="@drawable/ic_ranking_total"
+        android:title="Total"/>
+    <item
+        android:id="@+id/rankingpapeletas"
+        android:icon="@drawable/ic_ranking_papeletas"
+        android:title="Papeletas"/>
+
+</menu>

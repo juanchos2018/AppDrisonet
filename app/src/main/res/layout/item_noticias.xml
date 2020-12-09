@@ -100,13 +100,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:gravity="right"
+                android:gravity="left"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/imgphone"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/phonecall"
                     android:layout_marginBottom="5dp"
                     android:layout_width="40dp"
@@ -114,7 +114,7 @@
 
                 <ImageView
                     android:id="@+id/imgchat"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
                     android:background="@drawable/messengercircle"
                     android:layout_marginBottom="5dp"
                     android:layout_width="40dp"
