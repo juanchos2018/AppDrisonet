@@ -26,6 +26,7 @@ import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.model.KeyPath;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.SimpleLottieValueCallback;
+import com.example.appdrisonet.Clases.Cantidad;
 import com.example.appdrisonet.Clases.Papeleta;
 import com.example.appdrisonet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,6 +52,7 @@ public class Datos3Fragment extends Fragment {
     private ProgressDialog progressDialog;
     private DatabaseReference reference;
     private DatabaseReference reference2;
+    private DatabaseReference reference3;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     String dni,nombreusuario,apellidousuario;
@@ -167,16 +169,28 @@ public class Datos3Fragment extends Fragment {
 
     }
     private void GuardarPapeletas(String id ){
-
+        int cantidadPendienete=0;
+        int cantidadpapeletas=0;
         for (Papeleta item:Datos2Fragment.ListaPapeleta) {
 
+            if (item.getEstado_deuda().equals("PENDIENTE")){
+                cantidadPendienete++;
+            }
             reference2=FirebaseDatabase.getInstance().getReference("MisPapeletas").child(id);
             String key = reference2.push().getKey();
         //    reference2.child(user_id).child("iamge_usuario").setValue(rutafoto);
-            Papeleta o =new Papeleta(item.getEstado_deuda(),item.getFecha(),item.getImporte(),item.getPropietario(),item.getConductor());
+            Papeleta o =new Papeleta(item.getEstado_deuda(),item.getFecha(),item.getImporte(),item.getPropietario(),item.getConductor(),id);
             reference2.child(key).setValue(o);
-
+            cantidadpapeletas++;
         }
+        reference3=FirebaseDatabase.getInstance().getReference("TotalPapeletas").child(id);
+       // Cantidad cantidad= new Cantidad(id,nombreusuario,"default_image",cantidadPendienete,cantidadpapeletas);
+        reference3.child("id_usuario").setValue(id);
+        reference3.child("nombre").setValue(nombreusuario);
+        reference3.child("img_usuario").setValue("default_image");
+        reference3.child("cantidad_pendiente").setValue(cantidadPendienete);
+        reference3.child("totalpapeletas").setValue(cantidadpapeletas);
+
     }
     private void mensajeverfica(){
         builder1 = new AlertDialog.Builder(getContext());

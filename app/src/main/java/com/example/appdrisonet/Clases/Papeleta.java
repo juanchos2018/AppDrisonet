@@ -3,6 +3,7 @@ package com.example.appdrisonet.Clases;
 import java.util.ArrayList;
 
 public class Papeleta {
+
     private String conductor;
     private String estado_deuda;
     private String fecha;
@@ -14,14 +15,17 @@ public class Papeleta {
     private String pt_dni_propietario;
     private String pt_numero_licencia;
     private String serie_papeleta;
+    private String id_usuario;
     public Papeleta() {
     }
-    public Papeleta(String estado_deuda, String fecha, String importe, String propietario,String conductor) {
+    public Papeleta(String estado_deuda, String fecha, String importe, String propietario,String conductor,String id_usuario) {
         this.estado_deuda = estado_deuda;
         this.fecha = fecha;
         this.importe = importe;
         this.propietario = propietario;
         this.conductor=conductor;
+        this.id_usuario=id_usuario;
+
     }
 
     public Papeleta(String conductor, String estado_deuda, String fecha, String importe, String infraccion, String propietario, String pt_cod_papeleta, String pt_dni_conductor, String pt_dni_propietario, String pt_numero_licencia, String serie_papeleta) {
@@ -38,6 +42,13 @@ public class Papeleta {
         this.serie_papeleta = serie_papeleta;
     }
 
+    public String getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 
     public String getConductor() {
         return conductor;

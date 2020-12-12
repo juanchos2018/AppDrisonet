@@ -37,8 +37,6 @@
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-
     <FrameLayout
         android:id="@+id/fragmentid"
         android:layout_width="match_parent"
@@ -59,8 +57,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu_ranking"
         />
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

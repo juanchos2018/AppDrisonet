@@ -44,6 +44,9 @@ public class AdapterPapeletas extends RecyclerView.Adapter<AdapterPapeletas.View
             items.tvfecha.setText(listaPapeleta.get(position).getFecha());
             items.tvpropietario.setText(listaPapeleta.get(position).getPropietario());
 
+            items.id_usuario=listaPapeleta.get(position).getId_usuario();
+            items.conductor=listaPapeleta.get(position).getConductor();
+
         }
     }
 
@@ -55,7 +58,8 @@ public class AdapterPapeletas extends RecyclerView.Adapter<AdapterPapeletas.View
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
         TextView tvestado,tvfecha,tvpropietario;
-        ImageView imgnoticia,imgperfil;
+        String id_usuario,conductor;
+
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             tvestado=(TextView)itemView.findViewById(R.id.estado);
